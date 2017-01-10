@@ -10,8 +10,8 @@ By default all parameters but <b>useFullAlphabet</b> are false, which allows to 
 
 Code snipet for WPF project is below: 
 
-````C# 
 
+```C# 
 
 //Can be passed 0 argument, all except "useFullAlphabet" are false by default 
 RandomPasswordGenerator gen = new RandomPasswordGenerator();
@@ -21,21 +21,8 @@ RandomPasswordGenerator gen = new RandomPasswordGenerator();
                                         highCheckBoxB, symbolsCheckBoxB, 
                                         numbersCheckBoxB, hexBox
                                                         );			
-
- 
- 
-
-
- 
-            
-
- 
+*/
             pswdTextBoxHEX.Text = gen.GeneratePasswordRnd(LowCheckBox.IsChecked, HighCheckBox.IsChecked, 
-
-
- 
                                                         SymbolsCheckBox.IsChecked, NumbersCheckBox.IsChecked 
-
-
- 
                                                         ,useFullAlphabet.IsChecked); 
+```
