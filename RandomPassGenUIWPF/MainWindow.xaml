@@ -1,0 +1,28 @@
+﻿<Window x:Class="RandomPassGenUI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RandomPassGenUI"
+        mc:Ignorable="d"
+        Title="Password Generator" Height="350" Width="525"
+        Name="PassGen">
+    <Grid Margin="-5,7,5,-7.2">
+        <Button x:Name="rnPassButton" Content="Generate" HorizontalAlignment="Left" Margin="33,57,0,0" VerticalAlignment="Top" Width="75" Click="rnPassButton_Click"/>
+        <TextBox x:Name="pswdTextBoxHEX" HorizontalAlignment="Left" Height="55" Margin="154,55,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="273" ScrollViewer.VerticalScrollBarVisibility="Auto"/>
+        <Label x:Name="passLabel" Content="Password in HEX" HorizontalAlignment="Left" Margin="152,31,0,0" VerticalAlignment="Top" Width="138"/>
+        <Label x:Name="Alphabetlbl" Content="Alphabet" HorizontalAlignment="Left" Margin="48,105,0,0" VerticalAlignment="Top"/>
+        <StackPanel Margin="34,137,391,88" Orientation="Vertical">
+            <CheckBox x:Name="AllCheckBox" Content="All Values" HorizontalAlignment="Left" VerticalAlignment="Top" IsChecked="True"/>
+            <CheckBox x:Name="LowCheckBox" Content="LowCase" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+            <CheckBox x:Name="HighCheckBox" Content="High Case" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+            <CheckBox x:Name="NumbersCheckBox" Content="Numbers" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+            <CheckBox x:Name="SymbolsCheckBox" Content="Symbols" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+            <CheckBox x:Name="HEXBox" Content="Hex" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        </StackPanel>
+        <Label x:Name="label" Content="Maximum Len" HorizontalAlignment="Left" Margin="33,235,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="maxLenTextBox" HorizontalAlignment="Left" Height="23" Margin="34,266,0,0" TextWrapping="Wrap" Text="5" VerticalAlignment="Top" Width="120"/>
+        <Label x:Name="label1" Content="Password" HorizontalAlignment="Left" Margin="154,131,0,0" VerticalAlignment="Top" Visibility="Hidden"/>
+        <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="48" Margin="152,157,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="275" Visibility="Hidden"/>
+    </Grid>
+</Window>
