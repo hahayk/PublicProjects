@@ -6,30 +6,21 @@ To use class library you need at first do <b>"using RandomPassGenerator"</b> to 
 
 
  
-By default all parameters but AllCheckBox are false, which allows to generate random password with lowercase/highercase alphabet, symbols and numbers. 
+By default all parameters but <b>useFullAlphabet</b> are false, which allows to generate random password with lowercase/highercase alphabet, symbols and numbers. 
 
-
- 
- 
-
-
- 
 Code snipet for WPF project is below: 
 
-
- 
- 
+````C# 
 
 
-//Can be passed 0 argument, all except "AllCheckBox" are false by default 
+//Can be passed 0 argument, all except "useFullAlphabet" are false by default 
+RandomPasswordGenerator gen = new RandomPasswordGenerator();
 
-            RandomPasswordGenerator gen = new RandomPasswordGenerator();
 /*or RandomPasswordGenerator gen = new RandomPasswordGenerator(
-                                                        AllCheckBox.IsChecked, LowCheckBox.IsChecked, 
-                                                        HighCheckBox.IsChecked, SymbolsCheckBox.IsChecked, 
-                                                        NumbersCheckBox.IsChecked, HEXBox.IsChecked
+                                                        allCheckBoxB, lowCheckBoxB, 
+                                        highCheckBoxB, symbolsCheckBoxB, 
+                                        numbersCheckBoxB, hexBox
                                                         );			
-if you'r using WPF, like <b>RandomPassGenUI</b> project
 
  
  
@@ -47,4 +38,4 @@ if you'r using WPF, like <b>RandomPassGenUI</b> project
 
 
  
-                                                        ,AllCheckBox.IsChecked); 
+                                                        ,useFullAlphabet.IsChecked); 

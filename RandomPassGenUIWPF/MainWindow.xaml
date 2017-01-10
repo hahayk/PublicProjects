@@ -20,8 +20,10 @@
             <CheckBox x:Name="SymbolsCheckBox" Content="Symbols" HorizontalAlignment="Left" VerticalAlignment="Top"/>
             <CheckBox x:Name="HEXBox" Content="Hex" HorizontalAlignment="Left" VerticalAlignment="Top"/>
         </StackPanel>
-        <Label x:Name="label" Content="Maximum Len" HorizontalAlignment="Left" Margin="33,235,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="maxLenTextBox" HorizontalAlignment="Left" Height="23" Margin="34,266,0,0" TextWrapping="Wrap" Text="5" VerticalAlignment="Top" Width="120"/>
+        <StackPanel Margin="33,235,366,34" Orientation="Vertical" IsEnabled="False">
+            <Label x:Name="label" Content="Maximum Len" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+            <TextBox x:Name="maxLenTextBox" HorizontalAlignment="Left" Height="23" Margin="1,0,-0.2,0" TextWrapping="Wrap" Text="5" VerticalAlignment="Top" Width="120"/>
+        </StackPanel>
         <Label x:Name="label1" Content="Password" HorizontalAlignment="Left" Margin="154,131,0,0" VerticalAlignment="Top" Visibility="Hidden"/>
         <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="48" Margin="152,157,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="275" Visibility="Hidden"/>
     </Grid>

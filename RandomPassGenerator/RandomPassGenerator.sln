@@ -5,6 +5,8 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RandomPassGenerator", "RandomPassGenerator.csproj", "{380D20E2-C738-49BD-9468-9EE803054AE0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RandomPassGenUI", "..\RandomPassGenUIWPF\RandomPassGenUI.csproj", "{E7DC6477-E9A4-40B8-B1B3-DA5D797F5D9B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{380D20E2-C738-49BD-9468-9EE803054AE0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{380D20E2-C738-49BD-9468-9EE803054AE0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{380D20E2-C738-49BD-9468-9EE803054AE0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E7DC6477-E9A4-40B8-B1B3-DA5D797F5D9B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E7DC6477-E9A4-40B8-B1B3-DA5D797F5D9B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E7DC6477-E9A4-40B8-B1B3-DA5D797F5D9B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E7DC6477-E9A4-40B8-B1B3-DA5D797F5D9B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
