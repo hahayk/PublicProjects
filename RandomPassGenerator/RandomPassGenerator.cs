@@ -1,39 +1,38 @@
 ﻿using System;
-using System.Windows;
 
 namespace RandomPassGenerator
 {
     public class RandomPasswordGenerator
     {
-        bool? allCheckBoxB;
-        bool? lowCheckBoxB;
-        bool? highCheckBoxB;
-        bool? symbolsCheckBoxB;
-        bool? numbersCheckBoxB;
-        bool? hexBox;
+        bool? useFullAlphabet;
+        bool? useLowCaseAlphabet;
+        bool? useHighCaseAlphabet;
+        bool? useSymbolsAlphabet;
+        bool? useNumbersAlphabet;
+        bool? showInHex;
 
         //Default ctor
         public RandomPasswordGenerator()
         {
-            allCheckBoxB = true;
-            lowCheckBoxB = false;
-            highCheckBoxB = false;
-            symbolsCheckBoxB = false;
-            numbersCheckBoxB = false;
-            hexBox = false;         
+            useFullAlphabet = true;
+            useLowCaseAlphabet = false;
+            useHighCaseAlphabet = false;
+            useSymbolsAlphabet = false;
+            useNumbersAlphabet = false;
+            showInHex = false;         
         }
 
         //Ctor with params
-        public RandomPasswordGenerator(bool? allCheckBoxB, bool? lowCheckBoxB, 
-                                        bool? highCheckBoxB, bool? symbolsCheckBoxB, 
-                                        bool? numbersCheckBoxB, bool? hexBox)
+        public RandomPasswordGenerator(bool? useFullAlphabet, bool? useLowCaseAlphabet, 
+                                        bool? useHighCaseAlphabet, bool? useSymbolsAlphabet, 
+                                        bool? useNumbersAlphabet, bool? showInHex)
         {
-            this.allCheckBoxB = allCheckBoxB;
-            this.lowCheckBoxB = lowCheckBoxB;
-            this.highCheckBoxB = highCheckBoxB;
-            this.symbolsCheckBoxB = symbolsCheckBoxB;
-            this.numbersCheckBoxB = numbersCheckBoxB;
-            this.hexBox = hexBox;
+            this.useFullAlphabet = useFullAlphabet;
+            this.useLowCaseAlphabet = useLowCaseAlphabet;
+            this.useHighCaseAlphabet = useHighCaseAlphabet;
+            this.useSymbolsAlphabet = useSymbolsAlphabet;
+            this.useNumbersAlphabet = useNumbersAlphabet;
+            this.showInHex = showInHex;
         }
 
         public string GeneratePasswordRnd()
@@ -51,7 +50,7 @@ namespace RandomPassGenerator
             }
 
 
-            if (hexBox == true)
+            if (showInHex == true)
             {
                 string hexik = string.Empty;
                 foreach (var item in retVal)
@@ -72,16 +71,18 @@ namespace RandomPassGenerator
         //Get Alphabet for password
         private string[] AlphabetGenerator()
         {
-            if (allCheckBoxB == false &&
-                lowCheckBoxB == false &&
-                highCheckBoxB == false &&
-                symbolsCheckBoxB == false &&
-                numbersCheckBoxB == false)
+            if (useFullAlphabet == false &&
+                useLowCaseAlphabet == false &&
+                useHighCaseAlphabet == false &&
+                useSymbolsAlphabet == false &&
+                useNumbersAlphabet == false)
             {
-                MessageBox.Show("Select Alphabet!!!", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
+                //returns Alphabet with no value.
+                return Alphabet;
+                //MessageBox.Show("Select Alphabet!!!", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
 
-            if (allCheckBoxB == true)
+            if (useFullAlphabet == true)
             {
                 LowCase.CopyTo(Alphabet, 0);
                 HighCase.CopyTo(Alphabet, LowCase.Length);
@@ -92,23 +93,23 @@ namespace RandomPassGenerator
             }
 
             int sz = 0;
-            if (lowCheckBoxB == true)
+            if (useLowCaseAlphabet == true)
             {
                 LowCase.CopyTo(Alphabet, 0);
                 sz += LowCase.Length;
             }
 
-            if (highCheckBoxB == true)
+            if (useHighCaseAlphabet == true)
             {
                 HighCase.CopyTo(Alphabet, sz);
                 sz += HighCase.Length;
             }
-            if (numbersCheckBoxB == true)
+            if (useNumbersAlphabet == true)
             {
                 Numbers.CopyTo(Alphabet, sz);
                 sz += Numbers.Length;
             }
-            if (symbolsCheckBoxB == true)
+            if (useSymbolsAlphabet == true)
             {
                 Symbols.CopyTo(Alphabet, sz);
                 sz += Numbers.Length;
@@ -117,7 +118,7 @@ namespace RandomPassGenerator
             return Alphabet;
         }
 
-        //Defauld Alphabet
+        //Alphabets can be used
         private string[] Alphabet = new string[88];
         private string[] LowCase = { "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z" };
         private string[] HighCase = { "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z" };
