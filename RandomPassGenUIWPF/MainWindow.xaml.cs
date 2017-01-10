@@ -1,5 +1,4 @@
 ﻿using System.Windows;
-using System.Windows.Controls;
 using RandomPassGenerator;
 
 namespace RandomPassGenUI
@@ -24,11 +23,6 @@ namespace RandomPassGenUI
 
             //Can be passed 0 argument, all except "AllCheckBox" are false by default
             pswdTextBoxHEX.Text = gen.GeneratePasswordRnd();
-        }
-
-        private void listBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
+        }        
     }
 }

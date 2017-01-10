@@ -8,21 +8,41 @@ To use class library you need at first do <b>"using RandomPassGenerator"</b> to 
  
 By default all parameters but <b>useFullAlphabet</b> are false, which allows to generate random password with lowercase/highercase alphabet, symbols and numbers. 
 
-Code snipet for WPF project is below: 
+Code snipet of class library is below: 
 
 
 ```C# 
+    public class RandomPasswordGenerator
+    {
+        bool? useFullAlphabet;
+        bool? useLowCaseAlphabet;
+        bool? useHighCaseAlphabet;
+        bool? useSymbolsAlphabet;
+        bool? useNumbersAlphabet;
+        bool? showInHex;
 
-//Can be passed 0 argument, all except "useFullAlphabet" are false by default 
-RandomPasswordGenerator gen = new RandomPasswordGenerator();
+        //Default ctor
+        public RandomPasswordGenerator()
+        {
+            useFullAlphabet = true;
+            useLowCaseAlphabet = false;
+            useHighCaseAlphabet = false;
+            useSymbolsAlphabet = false;
+            useNumbersAlphabet = false;
+            showInHex = false;         
+        }
 
-/*or RandomPasswordGenerator gen = new RandomPasswordGenerator(
-                                                        allCheckBoxB, lowCheckBoxB, 
-                                        highCheckBoxB, symbolsCheckBoxB, 
-                                        numbersCheckBoxB, hexBox
-                                                        );			
-*/
-            pswdTextBoxHEX.Text = gen.GeneratePasswordRnd(LowCheckBox.IsChecked, HighCheckBox.IsChecked, 
-                                                        SymbolsCheckBox.IsChecked, NumbersCheckBox.IsChecked 
-                                                        ,useFullAlphabet.IsChecked); 
+        //Ctor with params
+        public RandomPasswordGenerator(bool? useFullAlphabet, bool? useLowCaseAlphabet, 
+                                        bool? useHighCaseAlphabet, bool? useSymbolsAlphabet, 
+                                        bool? useNumbersAlphabet, bool? showInHex)
+        {
+            this.useFullAlphabet = useFullAlphabet;
+            this.useLowCaseAlphabet = useLowCaseAlphabet;
+            this.useHighCaseAlphabet = useHighCaseAlphabet;
+            this.useSymbolsAlphabet = useSymbolsAlphabet;
+            this.useNumbersAlphabet = useNumbersAlphabet;
+            this.showInHex = showInHex;
+        }
+
 ```
