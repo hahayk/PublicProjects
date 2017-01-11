@@ -1,6 +1,6 @@
 <H1>Short review of Password Generator UI</H1> 
 
-This project demonstrate usage of <b>RandomPassGenerator</b> project.
+This project demonstrate usage of <b>RandomPassGenerator</b> class Library.
 
 Code snipet for WPF project is below: 
 ```C#
