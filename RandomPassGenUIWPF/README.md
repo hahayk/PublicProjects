@@ -15,5 +15,5 @@ RandomPasswordGenerator gen = new RandomPasswordGenerator(
 ```														
 You can see below some screeshots of WPF application
 
-![Result](Images/PassGen.JPG){:height="200px" width="100px"}
-![Result](Images/PassGenHEX.JPG){:height="200px" width="100px"}
+![Result](Images/PassGen.JPG | height="100px" width="50px")
+![Result](Images/PassGenHEX.JPG | height="100px" width="50px")
