@@ -44,5 +44,6 @@ Code snipet of class library is below:
             this.useNumbersAlphabet = useNumbersAlphabet;
             this.showInHex = showInHex;
         }
+    }
 
 ```
