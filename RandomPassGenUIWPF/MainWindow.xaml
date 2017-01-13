@@ -5,14 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RandomPassGenUI"
         mc:Ignorable="d"
-        Title="Password Generator" Height="350" Width="525"
+        Title="Password Generator" Height="253.6" Width="511.8"
         Name="PassGen">
-    <Grid Margin="-5,7,5,-7.2">
-        <Button x:Name="rnPassButton" Content="Generate" HorizontalAlignment="Left" Margin="33,57,0,0" VerticalAlignment="Top" Width="75" Click="rnPassButton_Click"/>
-        <TextBox x:Name="pswdTextBoxHEX" HorizontalAlignment="Left" Height="55" Margin="154,55,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="273" ScrollViewer.VerticalScrollBarVisibility="Auto"/>
-        <Label x:Name="passLabel" Content="Password in HEX" HorizontalAlignment="Left" Margin="152,31,0,0" VerticalAlignment="Top" Width="138"/>
-        <Label x:Name="Alphabetlbl" Content="Alphabet" HorizontalAlignment="Left" Margin="48,105,0,0" VerticalAlignment="Top"/>
-        <StackPanel Margin="34,137,391,88" Orientation="Vertical">
+    <Grid>
+        <Button x:Name="rnPassButton" Content="Generate" HorizontalAlignment="Left" Margin="14,27,0,0" VerticalAlignment="Top" Width="75" Click="rnPassButton_Click"/>
+        <TextBox x:Name="pswdTextBoxHEX" HorizontalAlignment="Left" Height="55" Margin="135,25,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="273" ScrollViewer.VerticalScrollBarVisibility="Auto"/>
+        <Label x:Name="passLabel" Content="Generated Random Password" HorizontalAlignment="Left" Margin="133,1,0,0" VerticalAlignment="Top" Width="174"/>
+        <Label x:Name="Alphabetlbl" Content="Alphabet" HorizontalAlignment="Left" Margin="29,75,0,0" VerticalAlignment="Top"/>
+        <StackPanel Margin="15,107,410,0" Orientation="Vertical">
             <CheckBox x:Name="AllCheckBox" Content="All Values" HorizontalAlignment="Left" VerticalAlignment="Top" IsChecked="True"/>
             <CheckBox x:Name="LowCheckBox" Content="LowCase" HorizontalAlignment="Left" VerticalAlignment="Top"/>
             <CheckBox x:Name="HighCheckBox" Content="High Case" HorizontalAlignment="Left" VerticalAlignment="Top"/>
@@ -20,10 +20,12 @@
             <CheckBox x:Name="SymbolsCheckBox" Content="Symbols" HorizontalAlignment="Left" VerticalAlignment="Top"/>
             <CheckBox x:Name="HEXBox" Content="Hex" HorizontalAlignment="Left" VerticalAlignment="Top"/>
         </StackPanel>
-        <StackPanel Margin="33,235,366,34" Orientation="Vertical" IsEnabled="False">
-            <Label x:Name="label" Content="Maximum Len" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-            <TextBox x:Name="maxLenTextBox" HorizontalAlignment="Left" Height="23" Margin="1,0,-0.2,0" TextWrapping="Wrap" Text="5" VerticalAlignment="Top" Width="120"/>
-        </StackPanel>
+        <Grid Margin="142,110,217,0" IsEnabled="True">
+            <Label x:Name="minLenLbl" Content="Min Lenght" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+            <Label x:Name="maxLenLbl" Content="Max Lenght" Margin="80,0,0,0"/>
+            <TextBox x:Name="MaxLenBox" HorizontalAlignment="Right" Height="23" Margin="0,36,40,0" TextWrapping="Wrap" Text="5" VerticalAlignment="Top" Width="31"/>
+            <TextBox x:Name="MinLenBox" HorizontalAlignment="Left" Height="23" Margin="10,36,0,0" TextWrapping="Wrap" Text="5" VerticalAlignment="Top" Width="31"/>
+        </Grid>
         <Label x:Name="label1" Content="Password" HorizontalAlignment="Left" Margin="154,131,0,0" VerticalAlignment="Top" Visibility="Hidden"/>
         <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="48" Margin="152,157,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="275" Visibility="Hidden"/>
     </Grid>

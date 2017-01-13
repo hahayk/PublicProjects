@@ -13,3 +13,7 @@ RandomPasswordGenerator gen = new RandomPasswordGenerator(
             //Can be passed 0 argument, all except "AllCheckBox" are false by default
             pswdTextBoxHEX.Text = gen.GeneratePasswordRnd();
 ```														
+You can see below some screeshots of WPF application
+
+![Result](Images/PassGen.JPG){:height="200px" width="100px"}
+![Result](Images/PassGenHEX.JPG){:height="200px" width="100px"}

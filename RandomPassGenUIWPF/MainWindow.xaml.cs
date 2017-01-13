@@ -15,14 +15,23 @@ namespace RandomPassGenUI
 
         private void rnPassButton_Click(object sender, RoutedEventArgs e)
         {
-            RandomPasswordGenerator gen = new RandomPasswordGenerator(
-                                                        AllCheckBox.IsChecked, LowCheckBox.IsChecked, 
-                                                        HighCheckBox.IsChecked, SymbolsCheckBox.IsChecked, 
-                                                        NumbersCheckBox.IsChecked, HEXBox.IsChecked
-                                                        );
-
             //Can be passed 0 argument, all except "AllCheckBox" are false by default
-            pswdTextBoxHEX.Text = gen.GeneratePasswordRnd();
-        }        
+
+            try
+            {
+                RandomPasswordGenerator gen = new RandomPasswordGenerator(
+                                                                AllCheckBox.IsChecked, LowCheckBox.IsChecked,
+                                                                HighCheckBox.IsChecked, SymbolsCheckBox.IsChecked,
+                                                                NumbersCheckBox.IsChecked, HEXBox.IsChecked,
+                                                                int.Parse(MinLenBox.Text), int.Parse(MaxLenBox.Text)
+                                                                );
+                pswdTextBoxHEX.Text = gen.GeneratePasswordRnd();
+            }
+            catch (System.Exception)
+            {
+                throw;// System.ArgumentNullException;
+            }
+
+        }
     }
 }

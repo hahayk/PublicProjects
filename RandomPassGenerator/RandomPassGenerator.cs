@@ -1,4 +1,8 @@
-﻿using System;
+﻿/// <summary>
+/// Generate random password with given alphabet and lenght
+/// </summary>
+
+using System;
 
 namespace RandomPassGenerator
 {
@@ -10,8 +14,10 @@ namespace RandomPassGenerator
         bool? useSymbolsAlphabet;
         bool? useNumbersAlphabet;
         bool? showInHex;
+        int minLen;
+        int maxLen;
 
-        //Default ctor
+        //Default constructor
         public RandomPasswordGenerator()
         {
             useFullAlphabet = true;
@@ -19,13 +25,17 @@ namespace RandomPassGenerator
             useHighCaseAlphabet = false;
             useSymbolsAlphabet = false;
             useNumbersAlphabet = false;
-            showInHex = false;         
+            showInHex = false;
+            minLen = 5;
+            maxLen = 5;
+
         }
 
-        //Ctor with params
-        public RandomPasswordGenerator(bool? useFullAlphabet, bool? useLowCaseAlphabet, 
-                                        bool? useHighCaseAlphabet, bool? useSymbolsAlphabet, 
-                                        bool? useNumbersAlphabet, bool? showInHex)
+        //Constructor with params
+        public RandomPasswordGenerator(bool? useFullAlphabet, bool? useLowCaseAlphabet,
+                                        bool? useHighCaseAlphabet, bool? useSymbolsAlphabet,
+                                        bool? useNumbersAlphabet, bool? showInHex,
+                                        int minLen=5, int maxLen=5) :this()
         {
             this.useFullAlphabet = useFullAlphabet;
             this.useLowCaseAlphabet = useLowCaseAlphabet;
@@ -33,22 +43,28 @@ namespace RandomPassGenerator
             this.useSymbolsAlphabet = useSymbolsAlphabet;
             this.useNumbersAlphabet = useNumbersAlphabet;
             this.showInHex = showInHex;
+
+            //check maxLen
+            maxLen = maxLen < minLen ? minLen : maxLen;
+
+            this.minLen = minLen;
+            this.maxLen = maxLen;
+
         }
 
         public string GeneratePasswordRnd()
         {
-            string[] alph = AlphabetGenerator();
+            string alph = AlphabetGenerator();
             int sz = Alphabet.Length;
 
             Random rnd = new Random();
-            int passSize = rnd.Next(5, sz);
+            int passSize = rnd.Next(minLen, maxLen);
 
             string retVal = string.Empty;
             for (int i = 0; i < passSize; i++)
             {
                 retVal += Alphabet[rnd.Next(0, sz)];
             }
-
 
             if (showInHex == true)
             {
@@ -59,17 +75,18 @@ namespace RandomPassGenerator
                     hexik += string.Format("{0:X2}", toInt);
                 }
 
-                return hexik; 
+                return hexik;
             }
             else
             {
                 return retVal;
             }
-       
+
         }
 
         //Get Alphabet for password
-        private string[] AlphabetGenerator()
+        //private string[] AlphabetGenerator()
+        private string AlphabetGenerator()
         {
             if (useFullAlphabet == false &&
                 useLowCaseAlphabet == false &&
@@ -84,10 +101,8 @@ namespace RandomPassGenerator
 
             if (useFullAlphabet == true)
             {
-                LowCase.CopyTo(Alphabet, 0);
-                HighCase.CopyTo(Alphabet, LowCase.Length);
-                Symbols.CopyTo(Alphabet, LowCase.Length + HighCase.Length);
-                Numbers.CopyTo(Alphabet, LowCase.Length + HighCase.Length + Symbols.Length);
+                Alphabet += string.Join("", LowCase) + string.Join("", HighCase) +
+                            string.Join("", Symbols) + string.Join("", Numbers);
 
                 return Alphabet;
             }
@@ -95,34 +110,35 @@ namespace RandomPassGenerator
             int sz = 0;
             if (useLowCaseAlphabet == true)
             {
-                LowCase.CopyTo(Alphabet, 0);
+                Alphabet += string.Join("", LowCase);
                 sz += LowCase.Length;
             }
 
             if (useHighCaseAlphabet == true)
             {
-                HighCase.CopyTo(Alphabet, sz);
+                Alphabet += string.Join("", HighCase);
                 sz += HighCase.Length;
             }
             if (useNumbersAlphabet == true)
             {
-                Numbers.CopyTo(Alphabet, sz);
+                Alphabet += string.Join("", Numbers);
                 sz += Numbers.Length;
             }
             if (useSymbolsAlphabet == true)
             {
-                Symbols.CopyTo(Alphabet, sz);
-                sz += Numbers.Length;
+                Alphabet += string.Join("", Symbols);
+
+                sz += Symbols.Length;
             }
 
             return Alphabet;
         }
 
         //Alphabets can be used
-        private string[] Alphabet = new string[88];
-        private string[] LowCase = { "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z" };
-        private string[] HighCase = { "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z" };
-        private string[] Numbers = { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9" };
-        private string[] Symbols = { "~", "`", "!", "@", "#", "$", "%", "^", "&", "*", "*", "(", ")", "-", "_", "+", "=", "<", ">", "?", "/", "[", "]", "{", "}", "|", "\\" };
+        private string Alphabet;
+        private char[] LowCase = { 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z' };
+        private char[] HighCase = { 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z' };
+        private char[] Numbers = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9' };
+        private char[] Symbols = { '~', '`', '!', '@', '#', '$', '%', '^', '&', '*', '*', '(', ')', '-', '_', '+', '=', '<', '>', '?', '/', '[', ']', '{', '}', '|', '\\' };
     }
 }
