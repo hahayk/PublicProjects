@@ -1,4 +1,4 @@
-# Operator overloadint
+# Operator overloading
 
 This shows how do + and - operators overloading. In the same way are doing other operators overloading. Here it shown in example of \'arithmetic vector\' sum and substraction.
 
