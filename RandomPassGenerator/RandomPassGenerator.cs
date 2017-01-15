@@ -55,33 +55,44 @@ namespace RandomPassGenerator
         public string GeneratePasswordRnd()
         {
             string alph = AlphabetGenerator();
-            int sz = Alphabet.Length;
 
-            Random rnd = new Random();
-            int passSize = rnd.Next(minLen, maxLen);
+            try {
+                int sz = Alphabet.Length;
+                Random rnd = new Random();
+                int passSize = rnd.Next(minLen, maxLen);
 
-            string retVal = string.Empty;
-            for (int i = 0; i < passSize; i++)
-            {
-                retVal += Alphabet[rnd.Next(0, sz)];
-            }
-
-            if (showInHex == true)
-            {
-                string hexik = string.Empty;
-                foreach (var item in retVal)
+                string retVal = string.Empty;
+                for (int i = 0; i < passSize; i++)
                 {
-                    var toInt = Convert.ToInt32(item);
-                    hexik += string.Format("{0:X2}", toInt);
+                    retVal += Alphabet[rnd.Next(0, sz)];
                 }
 
-                return hexik;
-            }
-            else
-            {
-                return retVal;
-            }
+                if (showInHex == true)
+                {
+                    string hexik = string.Empty;
 
+                    if (useFullAlphabet != null || useLowCaseAlphabet != null
+                        || useHighCaseAlphabet != null || useNumbersAlphabet != null
+                        || useSymbolsAlphabet != null)
+                    {
+                        foreach (var item in retVal)
+                        {
+                            var toInt = Convert.ToInt32(item);
+                            hexik += string.Format("{0:X2}", toInt);
+                        }
+
+                    }
+                    return hexik;
+                }
+                else
+                {
+                    return retVal;
+                }
+            }
+            catch (Exception)
+            {
+                return "Invalid alphabet is selected";
+            }
         }
 
         //Get Alphabet for password
