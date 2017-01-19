@@ -1,6 +1,6 @@
 # Clean desktop from unnecessary files and folders
 
-*How to install service
+*How to install service* <br\>
 Run command <br\>
 InstallUtil.exe CleanDesktopSevice.exe <br\>
 You need to run "Developer Command Prompt" as administrator. <br\>
