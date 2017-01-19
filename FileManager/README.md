@@ -12,8 +12,9 @@ The result should be: <br\>
 
 After completing installation press "Windows key" + R then write "Services". Find on it "DesktopCleaner" service and START.
 
-*How it works* <br\>
-Everey 3 hour runs and delete all files and folders in desktop.
+*How it works* 
+<br\>
+Every 3 hour runs and delete all files and folders in desktop.
 
 #####Some code snipet
 
