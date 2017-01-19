@@ -2,15 +2,17 @@
 
 *How to install service* <br\>
 Run command <br\>
-InstallUtil.exe CleanDesktopSevice.exe <br\>
-You need to run "Developer Command Prompt" as administrator. <br\>
+You need to run "Developer Command Prompt" as administrator. Go to directory of CleanDesktopSevice.exe file and write the following:
+*InstallUtil.exe CleanDesktopSevice.exe*  press Enter<br\>
 The result should be: <br\>
-*The commit phase completed sucsessfully*
-*The transacted install has completed*
+*The commit phase completed sucsessfully* <br\>
+*The transacted install has completed* <br\>
 
 <br\>
 
 After completing installation press "Windows key" + R then write "Services". Find on it "DesktopCleaner" service and START.
+
+<br\>
 
 *How it works* 
 <br\>
