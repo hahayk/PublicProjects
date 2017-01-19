@@ -1,21 +1,21 @@
 # Clean desktop from unnecessary files and folders
 
-*How to install service* <br\>
-Run command <br\>
+*How to install service* <br/>
+Run command <br/>
 You need to run "Developer Command Prompt" as administrator. Go to directory of CleanDesktopSevice.exe file and write the following:
 *InstallUtil.exe CleanDesktopSevice.exe*  press Enter<br\>
-The result should be: <br\>
-*The commit phase completed sucsessfully* <br\>
-*The transacted install has completed* <br\>
+The result should be: <br/>
+*The commit phase completed sucsessfully* <br/>
+*The transacted install has completed* <br/>
 
-<br\>
+<br/>
 
 After completing installation press "Windows key" + R then write "Services". Find on it "DesktopCleaner" service and START.
 
-<br\>
+<br/>
 
 *How it works* 
-<br\>
+<br/>
 Every 3 hour runs and delete all files and folders in desktop.
 
 #####Some code snipet
