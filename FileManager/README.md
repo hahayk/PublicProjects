@@ -1,69 +1,45 @@
-# Introduction of indexer overloading
+# Clean desktop from unnecessary files and folders
 
-*Indexers allow instances of a class or struct to be indexed just like arrays. Indexers resemble properties except that their accessors take parameters.*
+*How to install service
+Run command <br\>
+InstallUtil.exe CleanDesktopSevice.exe <br\>
+You need to run "Developer Command Prompt" as administrator. <br\>
+The result should be: <br\>
+*The commit phase completed sucsessfully*
+*The transacted install has completed*
 
-For more details click to link: 
-[Indexers (C# Programming Guide)](https://msdn.microsoft.com/en-us/library/6x16t2tx.aspx)
+<br\>
 
-The project represents the usage of indexer. It also contains implementation of *IEnumerator IEnumerable.GetEnumerator()* that needs to use foreach statement.
+After completing installation press "Windows key" + R then write "Services". Find on it "DesktopCleaner" service and START.
+
+*How it works*
+Everey 3 hour runs and delete all files and folders in desktop.
 
 #####Some code snipet
 
 *Code snipet from class library*
 ```C#
-public string this[int ind]
-{
-    get
-    {
-        switch (ind)
-        {
-            case 0:
-                return Sun;
-            case 1:
-                return Mercury;
-            case 2:
-                return Venus;
-            case 3:
-                return Earth;
-            case 4:
-                return Mars;
-            case 5:
-                return Jupiter;
-            case 6:
-                return Saturn;
-            case 7:
-                return Uranus;
-            case 8:
-                return Neptune;
-            default:
-                return "Unknown Solar System";
-        }
-    }
-}
+var filePath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+var empDir = new EmptyDirectory(filePath);
+empDir.EmptyDirectoryRecursively();
 ```
-
 
 *Code snipet from usage of class library*
 ```C#
-Console.WriteLine("This is  to represent the use of for statement for SolarSystem object");
-for (int i = 0; i < solSys.SolarSystemPlanetCount; i++)
+public void EmptyDirectoryRecursively()
 {
-    Console.WriteLine($"The {i+1} planet of Solar System is {solSys[i]}.");
+    var toDeleteFilePaths = Directory.GetFiles(DirName);
+    foreach (var file in toDeleteFilePaths)
+    {
+        File.Delete(file);
+    }
+
+    var dirs = Directory.GetDirectories(DirName);
+    foreach (var dir in dirs)
+    {
+        Directory.Delete(dir, true);
+    }
 }
 ```
-
-The result of mentioned usage is below:
-
-This is  to represent the use of for statement for SolarSystem object
-* The 1 planet of Solar System is Sun.
-* The 2 planet of Solar System is Mercury.
-* The 3 planet of Solar System is Venus.
-* The 4 planet of Solar System is Earth.
-* The 5 planet of Solar System is Mars.
-* The 6 planet of Solar System is Jupiter.
-* The 7 planet of Solar System is Saturn.
-* The 8 planet of Solar System is Uranus.
-* The 9 planet of Solar System is Neptune.
-
 
 > This project written for .NET Framework 4.5.2 version, C# 6
