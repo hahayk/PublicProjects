@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileManager", "FileManager\FileManager.csproj", "{A2CCEC93-C69D-4FC9-A8AB-2CB8EDCC9685}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleanDesktopSevice", "CleanDesktopSevice\CleanDesktopSevice.csproj", "{90FE689B-B585-4554-AF85-2F7271715742}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A2CCEC93-C69D-4FC9-A8AB-2CB8EDCC9685}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A2CCEC93-C69D-4FC9-A8AB-2CB8EDCC9685}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A2CCEC93-C69D-4FC9-A8AB-2CB8EDCC9685}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A2CCEC93-C69D-4FC9-A8AB-2CB8EDCC9685}.Release|Any CPU.Build.0 = Release|Any CPU
+		{90FE689B-B585-4554-AF85-2F7271715742}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{90FE689B-B585-4554-AF85-2F7271715742}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{90FE689B-B585-4554-AF85-2F7271715742}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{90FE689B-B585-4554-AF85-2F7271715742}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
