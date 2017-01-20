@@ -7,5 +7,5 @@ Below are the links where you can see details about each project in this directo
 * [RandomPassGenerator class library usage in WPF application] (https://github.com/hahayk/PublicProjects/tree/master/RandomPassGenUIWPF)
 * [Indexer usage in C#] (https://github.com/hahayk/PublicProjects/tree/master/IndexerForSolarSystem)
 * [Operator Overloading] (https://github.com/hahayk/PublicProjects/tree/master/VectorArithmetic)
-* [Desktop Cleaner] (https://github.com/harutyunyanhayk/PublicProjects/tree/master/FileManager)
+* [Desktop Cleaner] (https://github.com/harutyunyanhayk/PublicProjects/tree/master/DesktopCleaner)
 * [Folder Monitoring Tool] (https://github.com/harutyunyanhayk/PublicProjects/tree/master/FolderMonitoring)
