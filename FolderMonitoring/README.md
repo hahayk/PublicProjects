@@ -1,7 +1,7 @@
 <H1>Short review of Folder Monitoring Program</H1> 
 
-This class library monitoring given folder by using .Net Framework functionality. <br />
-
+This class library is monitoring given folder by using .Net Framework functionality. <br />
+d
 Code snipet for WPF project is below: 
 ```C#
 
@@ -30,3 +30,6 @@ private void Watch_Changed(object sender, FileSystemEventArgs e)
 You can see below some screeshots of class library usage
 
 ![Result](Gif/FolderMonitoring.gif)
+
+
+> This project written for .NET Framework 4.5.2 version, C# 6
