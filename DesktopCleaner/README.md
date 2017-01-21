@@ -2,8 +2,8 @@
 
 *How to install service* <br/>
 Run command <br/>
-You need to run "Developer Command Prompt" as administrator. Go to directory of CleanDesktopSevice.exe file and write the following:
-*InstallUtil.exe CleanDesktopSevice.exe*  press Enter<br\>
+You need to run "Developer Command Prompt" as administrator. Go to directory of *CleanDesktopSevice.exe* file and write the following:
+*InstallUtil.exe CleanDesktopSevice.exe* and press Enter<br\>
 The result should be: <br/>
 *The commit phase completed sucsessfully* <br/>
 *The transacted install has completed* <br/>
