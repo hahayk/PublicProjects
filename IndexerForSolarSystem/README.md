@@ -55,15 +55,15 @@ for (int i = 0; i < solSys.SolarSystemPlanetCount; i++)
 The result of mentioned usage is below:
 
 This is  to represent the use of for statement for SolarSystem object
-* The 1 planet of Solar System is Sun.
-* The 2 planet of Solar System is Mercury.
-* The 3 planet of Solar System is Venus.
-* The 4 planet of Solar System is Earth.
-* The 5 planet of Solar System is Mars.
-* The 6 planet of Solar System is Jupiter.
-* The 7 planet of Solar System is Saturn.
-* The 8 planet of Solar System is Uranus.
-* The 9 planet of Solar System is Neptune.
+ The 1 planet of Solar System is Sun. <br />
+ The 2 planet of Solar System is Mercury.<br />
+ The 3 planet of Solar System is Venus.<br />
+ The 4 planet of Solar System is Earth.<br />
+ The 5 planet of Solar System is Mars.<br />
+ The 6 planet of Solar System is Jupiter.<br />
+ The 7 planet of Solar System is Saturn.<br />
+ The 8 planet of Solar System is Uranus.<br />
+ The 9 planet of Solar System is Neptune.<br />
 
 
 > This project written for .NET Framework 4.5.2 version, C# 6
