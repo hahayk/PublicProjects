@@ -21,7 +21,7 @@ private void button_rndMove(object sender, MouseEventArgs e)
 ```
 
 The result is below: <br\>
-![Translit Arm](/buttonGif.gif)
+![Running Button](https://github.com/harutyunyanhayk/PublicProjects/blob/master/RunningButtonWPF/buttonGif.gif)
 
 
 
