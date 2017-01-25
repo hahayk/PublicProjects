@@ -1,0 +1,15 @@
+﻿<Window x:Class="RunningButtonWPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RunningButtonWPF"
+        mc:Ignorable="d"
+        Title="MainWindow" x:Name="MyMainWindow" Height="350" Width="525">
+    <Grid Name="Grid" Height="320" Width="500">
+        <Button x:Name="button" Content="Press Me If you can" HorizontalAlignment="Left" Margin="403,281,0,0" 
+                VerticalAlignment="Top" Width="87" Height="29" MouseEnter="button_MouseEnter" >
+        </Button>
+            
+    </Grid>
+</Window>
