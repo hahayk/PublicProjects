@@ -14,4 +14,4 @@ pswdTextBoxHEX.Text = gen.GeneratePasswordRnd();
 ```														
 You can see below some screeshots of WPF application
 
-![Result](Images/RandPassGen.gif)
+![Result](RandPassGen.gif)

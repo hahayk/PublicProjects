@@ -24,8 +24,8 @@
             <Grid.RowDefinitions>
 
             </Grid.RowDefinitions>
-            <Label x:Name="maxLenLbl" Content="Password Lenght" Margin="0,0,46,55.2" Grid.RowSpan="3"/>
-            <TextBox x:Name="MaxLenBox" HorizontalAlignment="Right" Height="23" Margin="0,31,191.2,0" TextWrapping="Wrap" Text="5" VerticalAlignment="Top" Width="31"/>
+            <Label x:Name="maxLenLbl" Content="Password Lenght" Margin="0,0,46.2,47"/>
+            <TextBox x:Name="MaxLenBox" HorizontalAlignment="Right" Height="23" Margin="0,44,191.2,0" TextWrapping="Wrap" Text="5" VerticalAlignment="Top" Width="31"/>
         </Grid>
         <Label x:Name="label1" Content="Password" HorizontalAlignment="Left" Margin="154,131,0,0" VerticalAlignment="Top" Visibility="Hidden"/>
         <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="48" Margin="152,157,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="275" Visibility="Hidden"/>
