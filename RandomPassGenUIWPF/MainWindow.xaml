@@ -5,14 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RandomPassGenUI"
         mc:Ignorable="d"
-        Title="Password Generator" Height="253.6" Width="511.8"
+        Title="Password Generator" Height="255.151" Width="381.511"
         Name="PassGen">
-    <Grid>
+    <Grid Margin="0,0,0,0.4">
         <Button x:Name="rnPassButton" Content="Generate" HorizontalAlignment="Left" Margin="14,27,0,0" VerticalAlignment="Top" Width="75" Click="rnPassButton_Click"/>
-        <TextBox x:Name="pswdTextBoxHEX" HorizontalAlignment="Left" Height="55" Margin="135,25,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="273" ScrollViewer.VerticalScrollBarVisibility="Auto"/>
+        <TextBox x:Name="pswdTextBoxHEX" HorizontalAlignment="Left" Height="55" Margin="135,25,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="172" ScrollViewer.VerticalScrollBarVisibility="Auto"/>
         <Label x:Name="passLabel" Content="Generated Random Password" HorizontalAlignment="Left" Margin="133,1,0,0" VerticalAlignment="Top" Width="174"/>
         <Label x:Name="Alphabetlbl" Content="Alphabet" HorizontalAlignment="Left" Margin="29,75,0,0" VerticalAlignment="Top"/>
-        <StackPanel Margin="15,107,410,0" Orientation="Vertical">
+        <StackPanel Margin="15,107,200,0" Orientation="Vertical">
             <CheckBox x:Name="AllCheckBox" Content="All Values" HorizontalAlignment="Left" VerticalAlignment="Top" IsChecked="True"/>
             <CheckBox x:Name="LowCheckBox" Content="LowCase" HorizontalAlignment="Left" VerticalAlignment="Top"/>
             <CheckBox x:Name="HighCheckBox" Content="High Case" HorizontalAlignment="Left" VerticalAlignment="Top"/>
@@ -20,13 +20,15 @@
             <CheckBox x:Name="SymbolsCheckBox" Content="Symbols" HorizontalAlignment="Left" VerticalAlignment="Top"/>
             <CheckBox x:Name="HEXBox" Content="Hex" HorizontalAlignment="Left" VerticalAlignment="Top"/>
         </StackPanel>
-        <Grid Margin="142,110,217,0" IsEnabled="True">
-            <Label x:Name="minLenLbl" Content="Min Lenght" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-            <Label x:Name="maxLenLbl" Content="Max Lenght" Margin="80,0,0,0"/>
-            <TextBox x:Name="MaxLenBox" HorizontalAlignment="Right" Height="23" Margin="0,36,40,0" TextWrapping="Wrap" Text="5" VerticalAlignment="Top" Width="31"/>
-            <TextBox x:Name="MinLenBox" HorizontalAlignment="Left" Height="23" Margin="10,36,0,0" TextWrapping="Wrap" Text="5" VerticalAlignment="Top" Width="31"/>
+        <Grid Margin="135,101,9.6,40.6" IsEnabled="True">
+            <Grid.RowDefinitions>
+
+            </Grid.RowDefinitions>
+            <Label x:Name="maxLenLbl" Content="Password Lenght" Margin="0,0,46,55.2" Grid.RowSpan="3"/>
+            <TextBox x:Name="MaxLenBox" HorizontalAlignment="Right" Height="23" Margin="0,31,191.2,0" TextWrapping="Wrap" Text="5" VerticalAlignment="Top" Width="31"/>
         </Grid>
         <Label x:Name="label1" Content="Password" HorizontalAlignment="Left" Margin="154,131,0,0" VerticalAlignment="Top" Visibility="Hidden"/>
         <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="48" Margin="152,157,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="275" Visibility="Hidden"/>
+        <Button x:Name="button" Content="Export To File" HorizontalAlignment="Left" Margin="283,187,0,0" VerticalAlignment="Top" Width="75" Click="button_Click"/>
     </Grid>
 </Window>

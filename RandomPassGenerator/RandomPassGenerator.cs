@@ -35,7 +35,7 @@ namespace RandomPassGenerator
         public RandomPasswordGenerator(bool? useFullAlphabet, bool? useLowCaseAlphabet,
                                         bool? useHighCaseAlphabet, bool? useSymbolsAlphabet,
                                         bool? useNumbersAlphabet, bool? showInHex,
-                                        int minLen=5, int maxLen=5) :this()
+                                        /*int minLen=5,*/ int maxLen=5) :this()
         {
             this.useFullAlphabet = useFullAlphabet;
             this.useLowCaseAlphabet = useLowCaseAlphabet;
@@ -44,10 +44,8 @@ namespace RandomPassGenerator
             this.useNumbersAlphabet = useNumbersAlphabet;
             this.showInHex = showInHex;
 
-            //check maxLen
-            maxLen = maxLen < minLen ? minLen : maxLen;
-
-            this.minLen = minLen;
+            // maxLen should be no less than 5 symbols
+            maxLen = maxLen < 5 ? 5 : maxLen;
             this.maxLen = maxLen;
 
         }
@@ -59,7 +57,7 @@ namespace RandomPassGenerator
             try {
                 int sz = Alphabet.Length;
                 Random rnd = new Random();
-                int passSize = rnd.Next(minLen, maxLen);
+                int passSize = maxLen;//rnd.Next(minLen, maxLen);
 
                 string retVal = string.Empty;
                 for (int i = 0; i < passSize; i++)
