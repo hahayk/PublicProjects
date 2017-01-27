@@ -36,7 +36,7 @@ int maxLen=5) :this()
 
   // maxLen should be no less than 5 symbols
   maxLen = maxLen < 5 ? 5 : maxLen;
-              this.maxLen = maxLen;
+  this.maxLen = maxLen;
 
 }
 
