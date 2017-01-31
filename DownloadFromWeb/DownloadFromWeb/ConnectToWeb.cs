@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace DownloadFromWeb
@@ -13,6 +14,10 @@ namespace DownloadFromWeb
         //Keep info from site
         private StreamWriter strWrite;
         WebClient webCl = new WebClient();
+        string htmlContent = string.Empty;
+        List<string> listOfMails = new List<string>();
+        List<string> listOfPages = new List<string>();
+        int counter = 0;
 
         public void SaveInfo(string url, string path)
         {
@@ -21,12 +26,71 @@ namespace DownloadFromWeb
                 throw new ArgumentNullException(nameof(url));
             }
 
-            strWrite = new StreamWriter(path);
+            //strWrite = new StreamWriter(path);
 
             Uri uri = new Uri(url);
-            var htmlContent = webCl.DownloadString(uri);
 
-            strWrite.Write(htmlContent);
+            try
+            {
+                htmlContent = webCl.DownloadString(uri);
+
+                //strWrite.Write(htmlContent);
+
+                //var linkDown = GetLinks(htmlContent);
+                GetLinks(htmlContent);
+
+            }
+            catch (Exception)
+            {
+            }
+            
+        }
+
+        public List<string> ReturnMails()
+        {
+            return listOfMails;
+        }
+
+        //private List<string> GetLinks(string htmlContent)
+        private void GetLinks(string htmlContent)
+        {
+            if (counter ++ > 3)
+            {
+                return;
+            }
+
+            List<string> links = new List<string>();
+
+            //Regex regExpression = new Regex("(?:href|src)=[\"|']?(.*?)[\"|'|>]+", RegexOptions.Singleline | RegexOptions.CultureInvariant);
+            Regex regExpression = new Regex("(?:href)=[\"|']?(.*?)[\"|'|>]+", RegexOptions.Singleline | RegexOptions.CultureInvariant);
+            if (regExpression.IsMatch(htmlContent))
+            {
+                string matchValue;
+                foreach (Match match in regExpression.Matches(htmlContent))
+                {
+                    matchValue = match.Groups[1].Value;
+                    links.Add(matchValue);
+
+                    if (matchValue.Contains("mailto"))
+                    {
+                        if (!listOfMails.Contains(matchValue))
+                        {
+                            listOfMails.Add(matchValue);
+                        }
+                    }
+
+                    if (matchValue.Contains("http:") && !matchValue.Contains(".css"))
+                    {
+                        if (!listOfPages.Contains(matchValue))
+                        {
+                            listOfPages.Add(matchValue);
+                            SaveInfo(matchValue, matchValue);
+                        }
+                    }
+                }
+            }
+
+            //return links;
         }
 
         #region IDisposable Support
