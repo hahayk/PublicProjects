@@ -1,6 +1,6 @@
 <H1>Short review of Web Content Downloader</H1> 
 
-Using this programm you can download some content from web linke: images, mails and links.
+Using this programm you can download some content from web link: images, mails and links.
 
 ```C#
 public void SaveInfo(string url)
