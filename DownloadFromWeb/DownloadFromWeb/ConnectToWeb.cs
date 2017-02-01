@@ -19,9 +19,9 @@ namespace DownloadFromWeb
         List<string> listOfPages = new List<string>();
 
         //depth of going inside in each link
-        const int counter = 30;
+        const int counter = 5;
 
-        public void SaveInfo(string url, string path)
+        public void SaveInfo(string url)
         {
             if(url == null)
             {
@@ -49,6 +49,8 @@ namespace DownloadFromWeb
             }
             
         }
+
+
 
         public List<string> ReturnMails()
         {
@@ -93,9 +95,9 @@ namespace DownloadFromWeb
 
                         if (!listOfPages.Contains(matchValue))
                         {
-                            Console.WriteLine(matchValue);
+                           // Console.WriteLine(matchValue);
                             listOfPages.Add(matchValue);
-                            SaveInfo(matchValue, matchValue);
+                            SaveInfo(matchValue);
                         }
                     }
                 }
@@ -103,6 +105,29 @@ namespace DownloadFromWeb
 
             //return links;
         }
+
+        public void SaveLinkToFile()
+        {
+            using (StreamWriter strWrite = new StreamWriter(/*Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + */"links.txt"))
+            {
+                foreach (var item in listOfPages)
+                {
+                    strWrite.WriteLine(item);
+                }
+            }
+        }
+
+        public void SaveMailToFile()
+        {
+            using (StreamWriter strWrite = new StreamWriter(/*Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + */"mails.txt"))
+            {
+                foreach (var item in listOfMails)
+                {
+                    strWrite.WriteLine(item);
+                }
+            }
+        }
+
 
         void SaveToFile(string filePath)
         {
