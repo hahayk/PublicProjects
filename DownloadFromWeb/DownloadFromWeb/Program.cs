@@ -17,7 +17,7 @@ namespace DownloadFromWeb
             //connect2Web.SaveInfo("http://aua.am/staff/", "mic.html");
 
 
-            Console.Write("Please enter WebPage linke: ");
+            Console.Write("Please enter WebPage link: ");
             var webLInk = Console.ReadLine();
             connect2Web.SaveInfo(webLInk);
 

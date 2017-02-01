@@ -23,7 +23,7 @@ namespace DownloadFromWeb
 
         public void SaveInfo(string url)
         {
-            if(url == null)
+            if (url == null)
             {
                 throw new ArgumentNullException(nameof(url));
             }
@@ -35,23 +35,15 @@ namespace DownloadFromWeb
             try
             {
                 htmlContent = webCl.DownloadString(uri);
-
-                //strWrite.Write(htmlContent);
-
-                //var linkDown = GetLinks(htmlContent);
                 GetLinks(htmlContent);
-
             }
             catch (Exception e)
             {
                 Console.WriteLine(e.Message);
                 //do something
             }
-            
         }
-
-
-
+        
         public List<string> ReturnMails()
         {
             return listOfMails;
@@ -62,7 +54,6 @@ namespace DownloadFromWeb
         {
             List<string> links = new List<string>();
 
-            //Regex regExpression = new Regex("(?:href|src)=[\"|']?(.*?)[\"|'|>]+", RegexOptions.Singleline | RegexOptions.CultureInvariant);
             Regex regExpression = new Regex("(?:href)=[\"|']?(.*?)[\"|'|>]+", RegexOptions.Singleline | RegexOptions.CultureInvariant);
             if (regExpression.IsMatch(htmlContent))
             {
@@ -79,31 +70,25 @@ namespace DownloadFromWeb
                             listOfMails.Add(matchValue);
                         }
                     }
-                    
 
                     if (matchValue.Contains("http:") && !matchValue.Contains(".css")
-                        && !matchValue.Contains("rss") && !matchValue.Contains(".zip") 
+                        && !matchValue.Contains("rss") && !matchValue.Contains(".zip")
                         && listOfPages.Count < counter)
                     {
                         if (matchValue.Contains(".jpg") || matchValue.Contains(".png"))
                         {
-                            
                             SaveToFile(matchValue);
-
-
                         }
 
                         if (!listOfPages.Contains(matchValue))
                         {
-                           // Console.WriteLine(matchValue);
+                            // Console.WriteLine(matchValue);
                             listOfPages.Add(matchValue);
                             SaveInfo(matchValue);
                         }
                     }
                 }
             }
-
-            //return links;
         }
 
         public void SaveLinkToFile()
@@ -128,11 +113,8 @@ namespace DownloadFromWeb
             }
         }
 
-
         void SaveToFile(string filePath)
         {
-
-
             var lastIndex = filePath.LastIndexOf("/");
             var fileName = filePath.Substring(lastIndex + 1);
 
@@ -140,15 +122,6 @@ namespace DownloadFromWeb
             {
                 client.DownloadFile(filePath, fileName);
             }
-            //strWrite = new StreamWriter(fileName);
-            //Uri pictureUri = new Uri(filePath);
-
-            //WebClient webClient = new WebClient();
-            //// /*string contentToSave = */webClient.DownloadFile(pictureUri, fileName);
-            //var contentToSave = webClient.DownloadData(pictureUri); 
-
-            //strWrite.Write(contentToSave);
-
         }
 
         #region IDisposable Support
@@ -189,7 +162,7 @@ namespace DownloadFromWeb
             // Do not change this code. Put cleanup code in Dispose(bool disposing) above.
             Dispose(true);
             // TODO: uncomment the following line if the finalizer is overridden above.
-             GC.SuppressFinalize(this);
+            GC.SuppressFinalize(this);
         }
         #endregion
 
