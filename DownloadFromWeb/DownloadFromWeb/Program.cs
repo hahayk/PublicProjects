@@ -12,11 +12,11 @@ namespace DownloadFromWeb
         {
             ConnectToWeb connect2Web = new ConnectToWeb();
             //connect2Web.SaveInfo("http://google.com", "google.html");
-            //connect2Web.SaveInfo("http://mic.am", "mic.html");
+            connect2Web.SaveInfo("http://mic.am", "mic.html");
             //connect2Web.SaveInfo("http://tert.am", "mic.html");
-            connect2Web.SaveInfo("http://aua.am/staff/", "mic.html");
+            //connect2Web.SaveInfo("http://aua.am/staff/", "mic.html");
 
-            
+
 
             List<string> mails = new List<string>();
             mails = connect2Web.ReturnMails();

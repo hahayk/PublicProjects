@@ -42,8 +42,9 @@ namespace DownloadFromWeb
                 GetLinks(htmlContent);
 
             }
-            catch (Exception)
+            catch (Exception e)
             {
+                Console.WriteLine(e.Message);
                 //do something
             }
             
@@ -82,6 +83,14 @@ namespace DownloadFromWeb
                         && !matchValue.Contains("rss") && !matchValue.Contains(".zip") 
                         && listOfPages.Count < counter)
                     {
+                        if (matchValue.Contains(".jpg") || matchValue.Contains(".png"))
+                        {
+                            
+                            SaveToFile(matchValue);
+
+
+                        }
+
                         if (!listOfPages.Contains(matchValue))
                         {
                             Console.WriteLine(matchValue);
@@ -93,6 +102,28 @@ namespace DownloadFromWeb
             }
 
             //return links;
+        }
+
+        void SaveToFile(string filePath)
+        {
+
+
+            var lastIndex = filePath.LastIndexOf("/");
+            var fileName = filePath.Substring(lastIndex + 1);
+
+            using (WebClient client = new WebClient())
+            {
+                client.DownloadFile(filePath, fileName);
+            }
+            //strWrite = new StreamWriter(fileName);
+            //Uri pictureUri = new Uri(filePath);
+
+            //WebClient webClient = new WebClient();
+            //// /*string contentToSave = */webClient.DownloadFile(pictureUri, fileName);
+            //var contentToSave = webClient.DownloadData(pictureUri); 
+
+            //strWrite.Write(contentToSave);
+
         }
 
         #region IDisposable Support
