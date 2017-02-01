@@ -17,7 +17,9 @@ namespace DownloadFromWeb
         string htmlContent = string.Empty;
         List<string> listOfMails = new List<string>();
         List<string> listOfPages = new List<string>();
-        int counter = 0;
+
+        //depth of going inside in each link
+        const int counter = 30;
 
         public void SaveInfo(string url, string path)
         {
@@ -42,6 +44,7 @@ namespace DownloadFromWeb
             }
             catch (Exception)
             {
+                //do something
             }
             
         }
@@ -54,11 +57,6 @@ namespace DownloadFromWeb
         //private List<string> GetLinks(string htmlContent)
         private void GetLinks(string htmlContent)
         {
-            if (counter ++ > 3)
-            {
-                return;
-            }
-
             List<string> links = new List<string>();
 
             //Regex regExpression = new Regex("(?:href|src)=[\"|']?(.*?)[\"|'|>]+", RegexOptions.Singleline | RegexOptions.CultureInvariant);
@@ -78,11 +76,15 @@ namespace DownloadFromWeb
                             listOfMails.Add(matchValue);
                         }
                     }
+                    
 
-                    if (matchValue.Contains("http:") && !matchValue.Contains(".css"))
+                    if (matchValue.Contains("http:") && !matchValue.Contains(".css")
+                        && !matchValue.Contains("rss") && !matchValue.Contains(".zip") 
+                        && listOfPages.Count < counter)
                     {
                         if (!listOfPages.Contains(matchValue))
                         {
+                            Console.WriteLine(matchValue);
                             listOfPages.Add(matchValue);
                             SaveInfo(matchValue, matchValue);
                         }
