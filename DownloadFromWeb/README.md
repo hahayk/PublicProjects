@@ -29,8 +29,8 @@ public void SaveInfo(string url)
 
 ##Result
 At the end of the runned programm there will be generated following files
-*links.txt
-*mails.txt
+* links.txt
+* mails.txt
 * *Lots of image files*
 
 ![Result](HTTPContentDowload.gif)
