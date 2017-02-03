@@ -17,9 +17,10 @@ namespace DownloadFromWeb
         string htmlContent = string.Empty;
         List<string> listOfMails = new List<string>();
         List<string> listOfPages = new List<string>();
+        string currentUrl;
 
         //depth of going inside in each link
-        const int counter = 5;
+        const int counter = 30;
 
         public void SaveInfo(string url)
         {
@@ -27,6 +28,8 @@ namespace DownloadFromWeb
             {
                 throw new ArgumentNullException(nameof(url));
             }
+
+            currentUrl = url;
 
             //strWrite = new StreamWriter(path);
 
@@ -71,14 +74,22 @@ namespace DownloadFromWeb
                         }
                     }
 
+                    //TODO: change to save images with relative path
+                    if ((matchValue.Contains(".jpg") || matchValue.Contains(".png")) && matchValue.Contains("http:"))
+                    {
+                        SaveToFile(matchValue);
+                    }
+                    else if ((matchValue.Contains(".jpg") || matchValue.Contains(".png")) && !matchValue.Contains("http:"))
+                    {
+                        SaveToFile(currentUrl + "//" + matchValue);
+                    }
+
+
                     if (matchValue.Contains("http:") && !matchValue.Contains(".css")
                         && !matchValue.Contains("rss") && !matchValue.Contains(".zip")
                         && listOfPages.Count < counter)
                     {
-                        if (matchValue.Contains(".jpg") || matchValue.Contains(".png"))
-                        {
-                            SaveToFile(matchValue);
-                        }
+                        
 
                         if (!listOfPages.Contains(matchValue))
                         {
