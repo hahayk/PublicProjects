@@ -128,6 +128,11 @@ namespace DownloadFromWeb
                         listOfPages.Add(currentUrl + matchValue);
                     }
 
+                    if (matchValue[0] == '/' && !matchValue.Contains(".css"))
+                    {
+                        listOfPages.Add(currentUrl + matchValue);
+                    }
+
                     if (matchValue.Contains("http") && !matchValue.Contains(".css")
                         && !matchValue.Contains("rss") && !matchValue.Contains(".zip")
                         /*&& listOfPages.Count < counter*/)
