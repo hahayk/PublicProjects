@@ -20,7 +20,20 @@ namespace DownloadFromWeb
         string currentUrl;
 
         //depth of going inside in each link
-        const int counter = 30;
+        const int counter = 1;
+
+        public ConnectToWeb(string startUrl)
+        {
+            if (!startUrl.Contains("http"))
+            {
+                currentUrl = "http://" + startUrl;
+            }
+            else
+            {
+                currentUrl = startUrl;
+            }
+
+        }
 
         public void SaveInfo(string url)
         {
@@ -29,16 +42,26 @@ namespace DownloadFromWeb
                 throw new ArgumentNullException(nameof(url));
             }
 
-            currentUrl = url;
+
+            if (!url.Contains("http"))
+            {
+                url = "http://" + url;
+            }
 
             //strWrite = new StreamWriter(path);
 
-            Uri uri = new Uri(url);
+            Uri uri = new Uri(currentUrl);
+
+            listOfPages.Add(uri.ToString());
+
 
             try
             {
-                htmlContent = webCl.DownloadString(uri);
-                GetLinks(htmlContent);
+                for (int i = 0; i < listOfPages.Count || i < counter; i++)
+                {
+                    htmlContent = webCl.DownloadString(listOfPages[i]);
+                    GetLinks(htmlContent); 
+                }
             }
             catch (Exception e)
             {
@@ -46,7 +69,7 @@ namespace DownloadFromWeb
                 //do something
             }
         }
-        
+
         public List<string> ReturnMails()
         {
             return listOfMails;
@@ -61,10 +84,10 @@ namespace DownloadFromWeb
             if (regExpression.IsMatch(htmlContent))
             {
                 string matchValue;
+
                 foreach (Match match in regExpression.Matches(htmlContent))
                 {
                     matchValue = match.Groups[1].Value;
-                    links.Add(matchValue);
 
                     if (matchValue.Contains("mailto"))
                     {
@@ -74,28 +97,48 @@ namespace DownloadFromWeb
                         }
                     }
 
-                    //TODO: change to save images with relative path
-                    if ((matchValue.Contains(".jpg") || matchValue.Contains(".png")) && matchValue.Contains("http:"))
+                    // Save images with full or relative paths
+                    if ((matchValue.Contains(".jpg") || matchValue.Contains(".png")) && matchValue.Contains("http"))
                     {
                         SaveToFile(matchValue);
                     }
-                    else if ((matchValue.Contains(".jpg") || matchValue.Contains(".png")) && !matchValue.Contains("http:"))
+                    else if ((matchValue.Contains(".jpg") || matchValue.Contains(".png")) && !matchValue.Contains("http"))
                     {
-                        SaveToFile(currentUrl + "//" + matchValue);
+                        SaveToFile(currentUrl + matchValue);
                     }
 
-
-                    if (matchValue.Contains("http:") && !matchValue.Contains(".css")
-                        && !matchValue.Contains("rss") && !matchValue.Contains(".zip")
-                        && listOfPages.Count < counter)
+                    if (/*listOfPages.Count < counter && */!matchValue.Contains("http") && matchValue.Contains(".php"))
                     {
-                        
+                        if (!listOfPages.Contains(currentUrl + matchValue))
+                        {
+                            //if (links.Count > counter)
+                            //{
+                            //    return;
+                            //}
+                            //links.Add(currentUrl + matchValue);
 
+                            // Console.WriteLine(matchValue);
+                            listOfPages.Add(currentUrl + matchValue);
+                           // SaveInfo(currentUrl + matchValue);
+                        }
+                    }
+
+                    if (matchValue.Contains("<a href") && !matchValue.Contains(".css"))
+                    {
+                        listOfPages.Add(currentUrl + matchValue);
+                    }
+
+                    if (matchValue.Contains("http") && !matchValue.Contains(".css")
+                        && !matchValue.Contains("rss") && !matchValue.Contains(".zip")
+                        /*&& listOfPages.Count < counter*/)
+                    {
                         if (!listOfPages.Contains(matchValue))
                         {
                             // Console.WriteLine(matchValue);
+                            //links.Add(matchValue);
+
                             listOfPages.Add(matchValue);
-                            SaveInfo(matchValue);
+                            //SaveInfo(matchValue);
                         }
                     }
                 }
