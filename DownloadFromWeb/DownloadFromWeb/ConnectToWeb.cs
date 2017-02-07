@@ -59,7 +59,7 @@ namespace DownloadFromWeb
             {
                 for (int i = 0; i < listOfPages.Count || i < counter; i++)
                 {
-                    htmlContent = webCl.DownloadString(listOfPages[i]);
+                        htmlContent = webCl.DownloadString(listOfPages[i]);
                     GetLinks(htmlContent); 
                 }
             }
