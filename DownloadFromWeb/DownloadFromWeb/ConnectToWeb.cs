@@ -125,12 +125,18 @@ namespace DownloadFromWeb
 
                     if (matchValue.Contains("<a href") && !matchValue.Contains(".css"))
                     {
-                        listOfPages.Add(currentUrl + matchValue);
+                        if (!listOfPages.Contains(currentUrl + matchValue))
+                        {
+                            listOfPages.Add(currentUrl + matchValue);
+                        }
                     }
 
                     if (matchValue[0] == '/' && !matchValue.Contains(".css"))
                     {
-                        listOfPages.Add(currentUrl + matchValue);
+                        if (!listOfPages.Contains(currentUrl + matchValue))
+                        {
+                            listOfPages.Add(currentUrl + matchValue);
+                        }
                     }
 
                     if (matchValue.Contains("http") && !matchValue.Contains(".css")
