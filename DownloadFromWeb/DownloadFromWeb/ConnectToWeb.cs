@@ -57,7 +57,7 @@ namespace DownloadFromWeb
 
             try
             {
-                for (int i = 0; i < listOfPages.Count || i < counter; i++)
+                for (int i = 0; i < listOfPages.Count && i < counter; i++)
                 {
                         htmlContent = webCl.DownloadString(listOfPages[i]);
                     GetLinks(htmlContent); 
@@ -88,6 +88,11 @@ namespace DownloadFromWeb
                 foreach (Match match in regExpression.Matches(htmlContent))
                 {
                     matchValue = match.Groups[1].Value;
+
+                    if (matchValue == string.Empty)
+                    {
+                        return;
+                    }
 
                     if (matchValue.Contains("mailto"))
                     {
