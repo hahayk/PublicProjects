@@ -1,11 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Net;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 
 namespace DownloadFromWeb
 {
@@ -20,9 +17,9 @@ namespace DownloadFromWeb
         string currentUrl;
 
         //depth of going inside in each link
-        const int counter = 1;
+        readonly int counter;
 
-        public ConnectToWeb(string startUrl)
+        public ConnectToWeb(string startUrl, int depth)
         {
             if (!startUrl.Contains("http"))
             {
@@ -32,6 +29,8 @@ namespace DownloadFromWeb
             {
                 currentUrl = startUrl;
             }
+
+            counter = depth;
 
         }
 
@@ -48,12 +47,9 @@ namespace DownloadFromWeb
                 url = "http://" + url;
             }
 
-            //strWrite = new StreamWriter(path);
-
             Uri uri = new Uri(currentUrl);
 
             listOfPages.Add(uri.ToString());
-
 
             try
             {
@@ -112,19 +108,11 @@ namespace DownloadFromWeb
                         SaveToFile(currentUrl + matchValue);
                     }
 
-                    if (/*listOfPages.Count < counter && */!matchValue.Contains("http") && matchValue.Contains(".php"))
+                    if (!matchValue.Contains("http") && matchValue.Contains(".php"))
                     {
                         if (!listOfPages.Contains(currentUrl + matchValue))
                         {
-                            //if (links.Count > counter)
-                            //{
-                            //    return;
-                            //}
-                            //links.Add(currentUrl + matchValue);
-
-                            // Console.WriteLine(matchValue);
                             listOfPages.Add(currentUrl + matchValue);
-                           // SaveInfo(currentUrl + matchValue);
                         }
                     }
 
@@ -145,16 +133,11 @@ namespace DownloadFromWeb
                     }
 
                     if (matchValue.Contains("http") && !matchValue.Contains(".css")
-                        && !matchValue.Contains("rss") && !matchValue.Contains(".zip")
-                        /*&& listOfPages.Count < counter*/)
+                        && !matchValue.Contains("rss") && !matchValue.Contains(".zip"))
                     {
                         if (!listOfPages.Contains(matchValue))
                         {
-                            // Console.WriteLine(matchValue);
-                            //links.Add(matchValue);
-
                             listOfPages.Add(matchValue);
-                            //SaveInfo(matchValue);
                         }
                     }
                 }
