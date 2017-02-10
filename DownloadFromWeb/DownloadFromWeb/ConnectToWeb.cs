@@ -55,8 +55,8 @@ namespace DownloadFromWeb
             {
                 for (int i = 0; i < listOfPages.Count && i < counter; i++)
                 {
-                        htmlContent = webCl.DownloadString(listOfPages[i]);
-                    GetLinks(htmlContent); 
+                    htmlContent = webCl.DownloadString(listOfPages[i]);
+                    GetLinks(htmlContent);
                 }
             }
             catch (Exception e)
@@ -66,10 +66,6 @@ namespace DownloadFromWeb
             }
         }
 
-        public List<string> ReturnMails()
-        {
-            return listOfMails;
-        }
 
         //private List<string> GetLinks(string htmlContent)
         private void GetLinks(string htmlContent)
@@ -90,6 +86,7 @@ namespace DownloadFromWeb
                         return;
                     }
 
+                    //Collect all mails in the page
                     if (matchValue.Contains("mailto"))
                     {
                         if (!listOfMails.Contains(matchValue))
@@ -99,15 +96,30 @@ namespace DownloadFromWeb
                     }
 
                     // Save images with full or relative paths
-                    if ((matchValue.Contains(".jpg") || matchValue.Contains(".png")) && matchValue.Contains("http"))
+                    //if ((matchValue.Contains(".jpg") || matchValue.Contains(".png")
+                    //    || matchValue.Contains(".zip") || matchValue.Contains(".mp3")) && matchValue.Contains("http"))
+                    //{
+                    //    SaveToFile(matchValue);
+                    //}
+                    //else if ((matchValue.Contains(".jpg") || matchValue.Contains(".png")
+                    //    || matchValue.Contains(".zip") || matchValue.Contains(".mp3")) && !matchValue.Contains("http"))
+                    //{
+                    //    SaveToFile(currentUrl + matchValue);
+                    //}
+
+                    if (matchValue.Contains(".jpg") || matchValue.Contains(".png")
+                        || matchValue.Contains(".zip") || matchValue.Contains(".mp3"))
                     {
+                        if(!matchValue.Contains("http"))
+                        {
+                            matchValue = currentUrl + matchValue;
+                        }
+
                         SaveToFile(matchValue);
                     }
-                    else if ((matchValue.Contains(".jpg") || matchValue.Contains(".png")) && !matchValue.Contains("http"))
-                    {
-                        SaveToFile(currentUrl + matchValue);
-                    }
 
+
+                    //Collect all links in the page
                     if (!matchValue.Contains("http") && matchValue.Contains(".php"))
                     {
                         if (!listOfPages.Contains(currentUrl + matchValue))
@@ -115,35 +127,37 @@ namespace DownloadFromWeb
                             listOfPages.Add(currentUrl + matchValue);
                         }
                     }
-
-                    if (matchValue.Contains("<a href") && !matchValue.Contains(".css"))
+                    if (!matchValue.Contains(".css"))
                     {
-                        if (!listOfPages.Contains(currentUrl + matchValue))
+                        if (matchValue.Contains("<a href") /*&& !matchValue.Contains(".css")*/)
                         {
-                            listOfPages.Add(currentUrl + matchValue);
+                            if (!listOfPages.Contains(currentUrl + matchValue))
+                            {
+                                listOfPages.Add(currentUrl + matchValue);
+                            }
                         }
-                    }
-
-                    if (matchValue[0] == '/' && !matchValue.Contains(".css"))
-                    {
-                        if (!listOfPages.Contains(currentUrl + matchValue))
+                        if (matchValue[0] == '/' /*&& !matchValue.Contains(".css")*/)
                         {
-                            listOfPages.Add(currentUrl + matchValue);
+                            if (!listOfPages.Contains(currentUrl + matchValue))
+                            {
+                                listOfPages.Add(currentUrl + matchValue);
+                            }
                         }
-                    }
 
-                    if (matchValue.Contains("http") && !matchValue.Contains(".css")
-                        && !matchValue.Contains("rss") && !matchValue.Contains(".zip"))
-                    {
-                        if (!listOfPages.Contains(matchValue))
+                        if (matchValue.Contains("http") /*&& !matchValue.Contains(".css")*/
+                            && !matchValue.Contains("rss") && !matchValue.Contains(".zip"))
                         {
-                            listOfPages.Add(matchValue);
+                            if (!listOfPages.Contains(matchValue))
+                            {
+                                listOfPages.Add(matchValue);
+                            }
                         }
                     }
                 }
             }
         }
 
+        //Save all links to .txt file
         public void SaveLinkToFile()
         {
             using (StreamWriter strWrite = new StreamWriter(/*Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + */"links.txt"))
@@ -155,6 +169,7 @@ namespace DownloadFromWeb
             }
         }
 
+        //Save all mails to .txt file
         public void SaveMailToFile()
         {
             using (StreamWriter strWrite = new StreamWriter(/*Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + */"mails.txt"))
@@ -166,6 +181,7 @@ namespace DownloadFromWeb
             }
         }
 
+        //Save Content to local file
         void SaveToFile(string filePath)
         {
             var lastIndex = filePath.LastIndexOf("/");
@@ -175,6 +191,11 @@ namespace DownloadFromWeb
             {
                 client.DownloadFile(filePath, fileName);
             }
+        }
+
+        public List<string> ReturnMails()
+        {
+            return listOfMails;
         }
 
         #region IDisposable Support
