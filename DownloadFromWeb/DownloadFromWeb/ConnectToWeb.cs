@@ -99,7 +99,7 @@ namespace DownloadFromWeb
                     {
                         if(!matchValue.Contains("http"))
                         {
-                            matchValue = currentUrl + matchValue;
+                            //matchValue = currentUrl + matchValue;
                         }
 
                         SaveToFile(matchValue);
@@ -111,23 +111,23 @@ namespace DownloadFromWeb
                     {
                         if (!listOfPages.Contains(currentUrl + matchValue))
                         {
-                            listOfPages.Add(currentUrl + matchValue);
+                            listOfPages.Add(/*currentUrl + */matchValue);
                         }
                     }
-                    if (!matchValue.Contains(".css"))
+                    if (matchValue.Contains("http") && !matchValue.Contains(".css"))
                     {
                         if (matchValue.Contains("<a href"))
                         {
                             if (!listOfPages.Contains(currentUrl + matchValue))
                             {
-                                listOfPages.Add(currentUrl + matchValue);
+                                listOfPages.Add(/*currentUrl + */matchValue);
                             }
                         }
                         if (matchValue[0] == '/')
                         {
                             if (!listOfPages.Contains(currentUrl + matchValue))
                             {
-                                listOfPages.Add(currentUrl + matchValue);
+                                listOfPages.Add(/*currentUrl + */matchValue);
                             }
                         }
 
