@@ -19,7 +19,7 @@ namespace DownloadFromWeb
         //depth of going inside in each link
         readonly int counter;
 
-        public ConnectToWeb(string startUrl, int depth)
+        public ConnectToWeb(string startUrl, int depth = 1)
         {
             if (!startUrl.Contains("http"))
             {
@@ -34,17 +34,12 @@ namespace DownloadFromWeb
 
         }
 
-        public void SaveInfo(string url)
+        public void SaveInfo()
+        //public void SaveInfo(string url)
         {
-            if (url == null)
+            if (currentUrl == null)
             {
-                throw new ArgumentNullException(nameof(url));
-            }
-
-
-            if (!url.Contains("http"))
-            {
-                url = "http://" + url;
+                throw new ArgumentNullException(nameof(currentUrl));
             }
 
             Uri uri = new Uri(currentUrl);
@@ -66,16 +61,19 @@ namespace DownloadFromWeb
             }
         }
 
+        Regex regExpression = new Regex(/*[?:img][?:href]=*/"[\"|']?(.*?)[\"|'|>]+", RegexOptions.Singleline | RegexOptions.CultureInvariant);
 
-        //private List<string> GetLinks(string htmlContent)
         private void GetLinks(string htmlContent)
         {
+            SaveContentToFile();
             List<string> links = new List<string>();
-
-            Regex regExpression = new Regex("(?:href)=[\"|']?(.*?)[\"|'|>]+", RegexOptions.Singleline | RegexOptions.CultureInvariant);
+            
+            //Regex regExpression = new Regex(/*[?:img][?:href]=*/"[\"|']?(.*?)[\"|'|>]+", RegexOptions.Singleline | RegexOptions.CultureInvariant);
             if (regExpression.IsMatch(htmlContent))
             {
                 string matchValue;
+
+                //SaveRegExToFile();
 
                 foreach (Match match in regExpression.Matches(htmlContent))
                 {
@@ -96,17 +94,6 @@ namespace DownloadFromWeb
                     }
 
                     // Save images with full or relative paths
-                    //if ((matchValue.Contains(".jpg") || matchValue.Contains(".png")
-                    //    || matchValue.Contains(".zip") || matchValue.Contains(".mp3")) && matchValue.Contains("http"))
-                    //{
-                    //    SaveToFile(matchValue);
-                    //}
-                    //else if ((matchValue.Contains(".jpg") || matchValue.Contains(".png")
-                    //    || matchValue.Contains(".zip") || matchValue.Contains(".mp3")) && !matchValue.Contains("http"))
-                    //{
-                    //    SaveToFile(currentUrl + matchValue);
-                    //}
-
                     if (matchValue.Contains(".jpg") || matchValue.Contains(".png")
                         || matchValue.Contains(".zip") || matchValue.Contains(".mp3"))
                     {
@@ -129,14 +116,14 @@ namespace DownloadFromWeb
                     }
                     if (!matchValue.Contains(".css"))
                     {
-                        if (matchValue.Contains("<a href") /*&& !matchValue.Contains(".css")*/)
+                        if (matchValue.Contains("<a href"))
                         {
                             if (!listOfPages.Contains(currentUrl + matchValue))
                             {
                                 listOfPages.Add(currentUrl + matchValue);
                             }
                         }
-                        if (matchValue[0] == '/' /*&& !matchValue.Contains(".css")*/)
+                        if (matchValue[0] == '/')
                         {
                             if (!listOfPages.Contains(currentUrl + matchValue))
                             {
@@ -144,8 +131,7 @@ namespace DownloadFromWeb
                             }
                         }
 
-                        if (matchValue.Contains("http") /*&& !matchValue.Contains(".css")*/
-                            && !matchValue.Contains("rss") && !matchValue.Contains(".zip"))
+                        if (matchValue.Contains("http") && !matchValue.Contains(".zip"))
                         {
                             if (!listOfPages.Contains(matchValue))
                             {
@@ -157,6 +143,15 @@ namespace DownloadFromWeb
             }
         }
 
+        private void SaveRegExToFile()
+        {
+            using (StreamWriter strWrite = new StreamWriter("Ext.txt")) 
+            {
+                strWrite.WriteLine((regExpression.Matches(htmlContent)).GetEnumerator().ToString());
+            }
+            
+        }
+
         //Save all links to .txt file
         public void SaveLinkToFile()
         {
@@ -166,6 +161,14 @@ namespace DownloadFromWeb
                 {
                     strWrite.WriteLine(item);
                 }
+            }
+        }
+
+        public void SaveContentToFile()
+        {
+            using (StreamWriter strWrite = new StreamWriter("Content.txt")) 
+            {
+                strWrite.WriteLine(htmlContent);
             }
         }
 
@@ -187,10 +190,21 @@ namespace DownloadFromWeb
             var lastIndex = filePath.LastIndexOf("/");
             var fileName = filePath.Substring(lastIndex + 1);
 
-            using (WebClient client = new WebClient())
+            try
             {
+                WebClient client = new WebClient();
                 client.DownloadFile(filePath, fileName);
+
             }
+            catch (Exception e)
+            {
+                //Console.WriteLine(e.TargetSite.ToString());
+                return;
+            }
+            //using (WebClient client = new WebClient())
+            //{
+            //    client.DownloadFile(filePath, fileName);
+            //}
         }
 
         public List<string> ReturnMails()
@@ -239,6 +253,5 @@ namespace DownloadFromWeb
             GC.SuppressFinalize(this);
         }
         #endregion
-
     }
 }
