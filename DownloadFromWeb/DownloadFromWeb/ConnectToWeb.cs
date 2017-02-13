@@ -66,6 +66,7 @@ namespace DownloadFromWeb
             catch (Exception e)
             {
                 Console.WriteLine(e.Message);
+                return;
                 //do something
             }
         }
@@ -198,10 +199,10 @@ namespace DownloadFromWeb
         {
             var lastIndex = filePath.LastIndexOf("/");
             var fileName = filePath.Substring(lastIndex + 1);
-
+            WebClient client = null;
             try
             {
-                WebClient client = new WebClient();
+                client = new WebClient();
                 client.DownloadFile(filePath, fileName);
 
             }
@@ -209,6 +210,10 @@ namespace DownloadFromWeb
             {
                 Console.WriteLine(e.Message);
                 return;
+            }
+            finally
+            {
+                client.Dispose();
             }
             //using (WebClient client = new WebClient())
             //{
