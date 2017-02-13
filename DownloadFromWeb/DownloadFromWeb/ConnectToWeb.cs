@@ -42,8 +42,17 @@ namespace DownloadFromWeb
                 throw new ArgumentNullException(nameof(currentUrl));
             }
 
-            Uri uri = new Uri(currentUrl);
+            Uri uri = null;
+            try
+            {
+                uri = new Uri(currentUrl);
 
+            }
+            catch (UriFormatException e)
+            {
+                Console.WriteLine(e.Message);
+                return;
+            }
             listOfPages.Add(uri.ToString());
 
             try
@@ -67,7 +76,7 @@ namespace DownloadFromWeb
         {
             SaveContentToFile();
             List<string> links = new List<string>();
-            
+
             //Regex regExpression = new Regex(/*[?:img][?:href]=*/"[\"|']?(.*?)[\"|'|>]+", RegexOptions.Singleline | RegexOptions.CultureInvariant);
             if (regExpression.IsMatch(htmlContent))
             {
@@ -97,7 +106,7 @@ namespace DownloadFromWeb
                     if (matchValue.Contains(".jpg") || matchValue.Contains(".png")
                         || matchValue.Contains(".zip") || matchValue.Contains(".mp3"))
                     {
-                        if(!matchValue.Contains("http"))
+                        if (!matchValue.Contains("http"))
                         {
                             //matchValue = currentUrl + matchValue;
                         }
@@ -145,11 +154,11 @@ namespace DownloadFromWeb
 
         private void SaveRegExToFile()
         {
-            using (StreamWriter strWrite = new StreamWriter("Ext.txt")) 
+            using (StreamWriter strWrite = new StreamWriter("Ext.txt"))
             {
                 strWrite.WriteLine((regExpression.Matches(htmlContent)).GetEnumerator().ToString());
             }
-            
+
         }
 
         //Save all links to .txt file
@@ -166,7 +175,7 @@ namespace DownloadFromWeb
 
         public void SaveContentToFile()
         {
-            using (StreamWriter strWrite = new StreamWriter("Content.txt")) 
+            using (StreamWriter strWrite = new StreamWriter("Content.txt"))
             {
                 strWrite.WriteLine(htmlContent);
             }
@@ -198,7 +207,7 @@ namespace DownloadFromWeb
             }
             catch (Exception e)
             {
-                //Console.WriteLine(e.TargetSite.ToString());
+                Console.WriteLine(e.Message);
                 return;
             }
             //using (WebClient client = new WebClient())
