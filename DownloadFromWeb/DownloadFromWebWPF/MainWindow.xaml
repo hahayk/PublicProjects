@@ -1,0 +1,22 @@
+﻿<Window x:Class="DownloadFromWebWPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DownloadFromWebWPF"
+        mc:Ignorable="d"
+        Title="Download from WEB" Height="350" Width="525">
+    <Grid Margin="0,0,83,82.8">
+        <TextBox x:Name="LinkTBox" HorizontalAlignment="Left" Height="23" Margin="10,35,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="400"/>
+        <Label x:Name="linkLabel" Content="Write A Link*" HorizontalAlignment="Left" Margin="8,10,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="saveContentButton" Content="Save Content" HorizontalAlignment="Left" Margin="115,178,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="saveLinksButton" Content="Save Links" HorizontalAlignment="Left" Margin="219,178,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="saveFilesButton" Content="Save Files" HorizontalAlignment="Left" Margin="335,178,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="saveAllbutton" Content="Save All" HorizontalAlignment="Left" Margin="10,178,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="1,0.24"/>
+        <Label x:Name="PlaceToSaveLabel" Content="Place To Save" HorizontalAlignment="Left" Margin="10,103,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="browsButton" Content="Browse" HorizontalAlignment="Left" Margin="12,134,0,0" VerticalAlignment="Top" Width="75" Click="browsButton_Click"/>
+        <TextBox x:Name="browseTextBox" HorizontalAlignment="Left" Height="23" Margin="115,134,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="295"/>
+        <Button x:Name="ReadContentButton" Content="Read Content" HorizontalAlignment="Left" Margin="40,63,0,0" VerticalAlignment="Top" Width="335" Height="35"/>
+
+    </Grid>
+</Window>
