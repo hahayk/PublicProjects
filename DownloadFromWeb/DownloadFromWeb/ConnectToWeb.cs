@@ -34,6 +34,41 @@ namespace DownloadFromWeb
 
         }
 
+        public void ReadPageContent()
+        {
+            if (currentUrl == null)
+            {
+                throw new ArgumentNullException(nameof(currentUrl));
+            }
+
+            Uri uri = null;
+            try
+            {
+                uri = new Uri(currentUrl);
+
+            }
+            catch (UriFormatException e)
+            {
+                Console.WriteLine(e.Message);
+                return;
+            }
+            listOfPages.Add(uri.ToString());
+
+            try
+            {
+                for (int i = 0; i < listOfPages.Count && i < counter; i++)
+                {
+                    HtmlContent = webCl.DownloadString(listOfPages[i]);
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                return;
+                //do something
+            }
+        }
+
         public void SaveInfo()
         //public void SaveInfo(string url)
         {
@@ -59,8 +94,8 @@ namespace DownloadFromWeb
             {
                 for (int i = 0; i < listOfPages.Count && i < counter; i++)
                 {
-                    htmlContent = webCl.DownloadString(listOfPages[i]);
-                    GetLinks(htmlContent);
+                    HtmlContent = webCl.DownloadString(listOfPages[i]);
+                    GetLinks(HtmlContent);
                 }
             }
             catch (Exception e)
@@ -157,7 +192,7 @@ namespace DownloadFromWeb
         {
             using (StreamWriter strWrite = new StreamWriter("Ext.txt"))
             {
-                strWrite.WriteLine((regExpression.Matches(htmlContent)).GetEnumerator().ToString());
+                strWrite.WriteLine((regExpression.Matches(HtmlContent)).GetEnumerator().ToString());
             }
 
         }
@@ -178,7 +213,7 @@ namespace DownloadFromWeb
         {
             using (StreamWriter strWrite = new StreamWriter("Content.txt"))
             {
-                strWrite.WriteLine(htmlContent);
+                strWrite.WriteLine(HtmlContent);
             }
         }
 
@@ -228,6 +263,19 @@ namespace DownloadFromWeb
 
         #region IDisposable Support
         private bool disposedValue = false; // To detect redundant calls
+
+        public string HtmlContent
+        {
+            get
+            {
+                return htmlContent;
+            }
+
+            set
+            {
+                htmlContent = value;
+            }
+        }
 
         protected virtual void Dispose(bool disposing)
         {

@@ -13,6 +13,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+using DownloadFromWeb;
+
 namespace DownloadFromWebWPF
 {
     /// <summary>
@@ -20,6 +22,9 @@ namespace DownloadFromWebWPF
     /// </summary>
     public partial class MainWindow : Window
     {
+        private ConnectToWeb connect2Web = null;
+
+
         public MainWindow()
         {
             InitializeComponent();
@@ -28,12 +33,27 @@ namespace DownloadFromWebWPF
             saveFilesButton.IsEnabled = false;
             saveAllbutton.IsEnabled = false;
             browsButton.IsEnabled = false;
+        }
 
+        private void ReadContentButton_Click(object sender, RoutedEventArgs e)
+        {
+            connect2Web = new ConnectToWeb(LinkTBox.Text);
+            connect2Web.ReadPageContent();
+
+            if (connect2Web.HtmlContent != string.Empty)
+            {
+                saveContentButton.IsEnabled = true;
+                saveLinksButton.IsEnabled = true;
+                saveFilesButton.IsEnabled = true;
+                saveAllbutton.IsEnabled = true;
+                browsButton.IsEnabled = true;
+            }
         }
 
         private void browsButton_Click(object sender, RoutedEventArgs e)
         {
 
         }
+
     }
 }
