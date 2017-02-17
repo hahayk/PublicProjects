@@ -4,6 +4,7 @@ using System.IO;
 using System.Net;
 using System.Text.RegularExpressions;
 
+
 namespace DownloadFromWeb
 {
     public class ConnectToWeb : IDisposable
@@ -38,7 +39,7 @@ namespace DownloadFromWeb
         {
             if (currentUrl == null)
             {
-                throw new ArgumentNullException(nameof(currentUrl));
+                throw new ArgumentNullException($"{nameof(currentUrl)} Please enter valid URL.");
             }
 
             Uri uri = null;
@@ -49,9 +50,9 @@ namespace DownloadFromWeb
             }
             catch (UriFormatException e)
             {
-                Console.WriteLine(e.Message);
-                return;
+                throw new UriFormatException($"{e.Message} Please enter valid URL.");
             }
+
             listOfPages.Add(uri.ToString());
 
             try
@@ -63,9 +64,7 @@ namespace DownloadFromWeb
             }
             catch (Exception e)
             {
-                Console.WriteLine(e.Message);
-                return;
-                //do something
+                throw new Exception($"{e.Message} is not valid URL.");
             }
         }
 
