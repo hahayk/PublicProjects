@@ -16,9 +16,24 @@ namespace DownloadFromWeb
         List<string> listOfMails = new List<string>();
         List<string> listOfPages = new List<string>();
         string currentUrl;
+        string folderPath = "";
+        List<string> currentFileToSave = new List<string>();
 
         //depth of going inside in each link
         readonly int counter;
+        public string FolderPath
+        {
+            get
+            {
+                return folderPath;
+            }
+
+            set
+            {
+                folderPath = value;
+            }
+        }
+
 
         public ConnectToWeb(string startUrl, int depth = 1)
         {
@@ -84,7 +99,7 @@ namespace DownloadFromWeb
             }
             catch (UriFormatException e)
             {
-                Console.WriteLine(e.Message);
+                //Console.WriteLine(e.Message);
                 return;
             }
             listOfPages.Add(uri.ToString());
@@ -99,17 +114,17 @@ namespace DownloadFromWeb
             }
             catch (Exception e)
             {
-                Console.WriteLine(e.Message);
+                //Console.WriteLine(e.Message);
                 return;
                 //do something
             }
         }
 
-        Regex regExpression = new Regex(/*[?:img][?:href]=*/"[\"|']?(.*?)[\"|'|>]+", RegexOptions.Singleline | RegexOptions.CultureInvariant);
+        Regex regExpression = new Regex("[?:href]=[\"|']?(.*?)[\"|'|>]+", RegexOptions.Singleline | RegexOptions.CultureInvariant);
 
         private void GetLinks(string htmlContent)
         {
-            SaveContentToFile();
+            //SaveContentToFile();
             List<string> links = new List<string>();
 
             //Regex regExpression = new Regex(/*[?:img][?:href]=*/"[\"|']?(.*?)[\"|'|>]+", RegexOptions.Singleline | RegexOptions.CultureInvariant);
@@ -139,14 +154,16 @@ namespace DownloadFromWeb
 
                     // Save images with full or relative paths
                     if (matchValue.Contains(".jpg") || matchValue.Contains(".png")
-                        || matchValue.Contains(".zip") || matchValue.Contains(".mp3"))
+                        || matchValue.Contains(".zip") || matchValue.Contains(".mp3") || matchValue.Contains(".svg"))
                     {
                         if (!matchValue.Contains("http"))
                         {
-                            //matchValue = currentUrl + matchValue;
+                            matchValue = currentUrl + matchValue;
                         }
 
-                        SaveToFile(matchValue);
+                        currentFileToSave.Add(matchValue);
+
+                      //  SaveToFile(matchValue);
                     }
 
 
@@ -199,7 +216,7 @@ namespace DownloadFromWeb
         //Save all links to .txt file
         public void SaveLinkToFile()
         {
-            using (StreamWriter strWrite = new StreamWriter(/*Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + */"links.txt"))
+            using (StreamWriter strWrite = new StreamWriter(FolderPath + "\\links.txt"))
             {
                 foreach (var item in listOfPages)
                 {
@@ -210,7 +227,7 @@ namespace DownloadFromWeb
 
         public void SaveContentToFile()
         {
-            using (StreamWriter strWrite = new StreamWriter("Content.txt"))
+            using (StreamWriter strWrite = new StreamWriter(FolderPath + "\\Content.txt"))
             {
                 strWrite.WriteLine(HtmlContent);
             }
@@ -219,7 +236,7 @@ namespace DownloadFromWeb
         //Save all mails to .txt file
         public void SaveMailToFile()
         {
-            using (StreamWriter strWrite = new StreamWriter(/*Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + */"mails.txt"))
+            using (StreamWriter strWrite = new StreamWriter(FolderPath + "\\mails.txt"))
             {
                 foreach (var item in listOfMails)
                 {
@@ -229,25 +246,29 @@ namespace DownloadFromWeb
         }
 
         //Save Content to local file
-        void SaveToFile(string filePath)
+        //public void SaveToFile(string filePath)
+        public void SaveToFile()
         {
-            var lastIndex = filePath.LastIndexOf("/");
-            var fileName = filePath.Substring(lastIndex + 1);
-            WebClient client = null;
-            try
+            foreach (var filePath in currentFileToSave)
             {
-                client = new WebClient();
-                client.DownloadFile(filePath, fileName);
+                var lastIndex = filePath.LastIndexOf("/");
+                var fileName = FolderPath + "\\" + filePath.Substring(lastIndex + 1);
+                WebClient client = null;
+                try
+                {
+                    client = new WebClient();
+                    client.DownloadFile(filePath, fileName);
 
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.Message);
-                return;
-            }
-            finally
-            {
-                client.Dispose();
+                }
+                catch (Exception e)
+                {
+                    //Console.WriteLine(e.Message);
+                    //return;
+                }
+                finally
+                {
+                    client.Dispose();
+                }
             }
             //using (WebClient client = new WebClient())
             //{
@@ -275,6 +296,8 @@ namespace DownloadFromWeb
                 htmlContent = value;
             }
         }
+
+        
 
         protected virtual void Dispose(bool disposing)
         {

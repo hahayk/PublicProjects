@@ -1,17 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 using DownloadFromWeb;
 using Microsoft.Win32;
@@ -68,7 +56,18 @@ namespace DownloadFromWebWPF
             {
                 FileInfo fileInfo = new FileInfo(openFileDialog.FileName);
                 browseTextBox.Text = fileInfo.DirectoryName;
+
             }
+        }
+
+        private void saveAllbutton_Click(object sender, RoutedEventArgs e)
+        {
+            connect2Web.FolderPath = browseTextBox.Text;
+            connect2Web.SaveContentToFile();
+            connect2Web.SaveInfo();
+            connect2Web.SaveLinkToFile();
+            connect2Web.SaveMailToFile();
+            connect2Web.SaveToFile();
         }
     }
 }
