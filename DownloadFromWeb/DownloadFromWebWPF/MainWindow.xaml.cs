@@ -75,5 +75,10 @@ namespace DownloadFromWebWPF
         {
             connect2Web.SaveContentToFile();
         }
+
+        private void saveLinksButton_Click(object sender, RoutedEventArgs e)
+        {
+            connect2Web.SaveLinkToFile();
+        }
     }
 }
