@@ -41,10 +41,6 @@ namespace DownloadFromWebWPF
             }
             if (connect2Web.HtmlContent != string.Empty)
             {
-                saveContentButton.IsEnabled = true;
-                saveLinksButton.IsEnabled = true;
-                saveFilesButton.IsEnabled = true;
-                saveAllbutton.IsEnabled = true;
                 browsButton.IsEnabled = true;
             }
         }
@@ -56,8 +52,13 @@ namespace DownloadFromWebWPF
             {
                 FileInfo fileInfo = new FileInfo(openFileDialog.FileName);
                 browseTextBox.Text = fileInfo.DirectoryName;
-
+                connect2Web.FolderPath = browseTextBox.Text;
             }
+
+            saveContentButton.IsEnabled = true;
+            saveLinksButton.IsEnabled = true;
+            saveFilesButton.IsEnabled = true;
+            saveAllbutton.IsEnabled = true;
         }
 
         private void saveAllbutton_Click(object sender, RoutedEventArgs e)
@@ -68,6 +69,11 @@ namespace DownloadFromWebWPF
             connect2Web.SaveLinkToFile();
             connect2Web.SaveMailToFile();
             connect2Web.SaveToFile();
+        }
+
+        private void saveContentButton_Click(object sender, RoutedEventArgs e)
+        {
+            connect2Web.SaveContentToFile();
         }
     }
 }
