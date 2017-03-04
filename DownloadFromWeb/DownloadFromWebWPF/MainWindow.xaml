@@ -15,7 +15,7 @@
         <Label x:Name="linkLabel" Content="Write A Link*" HorizontalAlignment="Left" Margin="8,10,0,0" VerticalAlignment="Top" Height="26" Width="79"/>
         <Button x:Name="saveContentButton" Content="Save Content" HorizontalAlignment="Left" Margin="115,178,0,0" VerticalAlignment="Top" Width="75" Height="20" Click="saveContentButton_Click"/>
         <Button x:Name="saveLinksButton" Content="Save Links" HorizontalAlignment="Left" Margin="219,178,0,0" VerticalAlignment="Top" Width="75" Height="20" Click="saveLinksButton_Click"/>
-        <Button x:Name="saveFilesButton" Content="Save Files" HorizontalAlignment="Left" Margin="335,178,0,0" VerticalAlignment="Top" Width="75" Height="20"/>
+        <Button x:Name="saveFilesButton" Content="Save Files" HorizontalAlignment="Left" Margin="335,178,0,0" VerticalAlignment="Top" Width="75" Height="20" Click="saveFilesButton_Click"/>
         <Button x:Name="saveAllbutton" Content="Save All" HorizontalAlignment="Left" Margin="10,178,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="1,0.24" Height="20" Click="saveAllbutton_Click"/>
         <Label x:Name="PlaceToSaveLabel" Content="Place To Save" HorizontalAlignment="Left" Margin="10,103,0,0" VerticalAlignment="Top" Height="26" Width="81"/>
         <Button x:Name="browsButton" Content="Browse" HorizontalAlignment="Left" Margin="12,134,0,0" VerticalAlignment="Top" Width="75" Click="browseButton_Click" Height="20"/>
