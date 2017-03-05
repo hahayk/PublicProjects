@@ -19,7 +19,7 @@
         <Button x:Name="saveAllbutton" Content="Save All" HorizontalAlignment="Left" Margin="10,178,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="1,0.24" Height="20" Click="saveAllbutton_Click"/>
         <Label x:Name="PlaceToSaveLabel" Content="Place To Save" HorizontalAlignment="Left" Margin="10,103,0,0" VerticalAlignment="Top" Height="26" Width="81"/>
         <Button x:Name="browsButton" Content="Browse" HorizontalAlignment="Left" Margin="12,134,0,0" VerticalAlignment="Top" Width="75" Click="browseButton_Click" Height="20"/>
-        <TextBox x:Name="browseTextBox" HorizontalAlignment="Left" Height="23" Margin="115,134,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="295"/>
+        <TextBox x:Name="browseTextBox" HorizontalAlignment="Left" Height="23" Margin="115,134,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="295" TextChanged="TextBoxChangeEvent"/>
         <Button x:Name="ReadContentButton" Content="Read Content" HorizontalAlignment="Left" Margin="40,63,0,0" VerticalAlignment="Top" Width="335" Height="35" Click="ReadContentButton_Click"/>
 
     </Grid>
