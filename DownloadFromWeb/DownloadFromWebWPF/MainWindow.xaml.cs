@@ -86,7 +86,7 @@ namespace DownloadFromWebWPF
             connect2Web.SaveToFile();
         }
 
-        private void TextBoxChangeEvent(object sender, System.Windows.Controls.TextChangedEventArgs e)
+        private void TextBoxChangeEvent(object sender, RoutedEventArgs e)
         {
             if (Directory.Exists(browseTextBox.Text))
             {
@@ -97,6 +97,12 @@ namespace DownloadFromWebWPF
                 saveFilesButton.IsEnabled = true;
                 saveAllbutton.IsEnabled = true;
             }
+            else
+            {
+                MessageBox.Show("Please enter valid folder path!!!");
+                browseTextBox.Text = "";
+            }
         }
+
     }
 }
