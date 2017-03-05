@@ -24,6 +24,7 @@ namespace DownloadFromWebWPF
             saveFilesButton.IsEnabled = false;
             saveAllbutton.IsEnabled = false;
             browsButton.IsEnabled = false;
+            browseTextBox.IsEnabled = false;
         }
 
         private void ReadContentButton_Click(object sender, RoutedEventArgs e)
@@ -59,6 +60,7 @@ namespace DownloadFromWebWPF
             saveLinksButton.IsEnabled = true;
             saveFilesButton.IsEnabled = true;
             saveAllbutton.IsEnabled = true;
+            browseTextBox.IsEnabled = true;
         }
 
         private void saveAllbutton_Click(object sender, RoutedEventArgs e)
@@ -96,6 +98,7 @@ namespace DownloadFromWebWPF
                 saveLinksButton.IsEnabled = true;
                 saveFilesButton.IsEnabled = true;
                 saveAllbutton.IsEnabled = true;
+                browseTextBox.IsEnabled = true;
             }
             else
             {
