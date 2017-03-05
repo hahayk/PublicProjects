@@ -4,7 +4,7 @@ using System.Windows;
 using DownloadFromWeb;
 using Microsoft.Win32;
 using System.IO;
-
+using System.Windows.Forms;
 
 namespace DownloadFromWebWPF
 {
@@ -33,11 +33,10 @@ namespace DownloadFromWebWPF
             {
                 connect2Web = new ConnectToWeb(LinkTBox.Text);
                 connect2Web.ReadPageContent();
-
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Exception occured", MessageBoxButton.OK, MessageBoxImage.Error);
+                System.Windows.MessageBox.Show(ex.Message, "Exception occured", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
             if (connect2Web.HtmlContent != string.Empty)
@@ -46,16 +45,32 @@ namespace DownloadFromWebWPF
             }
         }
 
+        
+
         private void browseButton_Click(object sender, RoutedEventArgs e)
         {
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            if(openFileDialog.ShowDialog() == true)
+            FolderBrowserDialog folderDialog = new FolderBrowserDialog();
+            if (folderDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-                FileInfo fileInfo = new FileInfo(openFileDialog.FileName);
-                browseTextBox.Text = fileInfo.DirectoryName;
+                browseTextBox.Text = folderDialog.SelectedPath;
                 connect2Web.FolderPath = browseTextBox.Text;
-            }
 
+
+                //OpenFileDialog openFileDialog = new OpenFileDialog();
+                //if (openFileDialog.ShowDialog() == true)
+                //{
+                //    FileInfo fileInfo = new FileInfo(openFileDialog.FileName);
+                //    browseTextBox.Text = Directory.GetCurrentDirectory();
+                //    //browseTextBox.Text = fileInfo.DirectoryName;
+                //    connect2Web.FolderPath = browseTextBox.Text;
+                //}
+
+                EnableButtons();
+            }
+        }
+
+        private void EnableButtons()
+        {
             saveContentButton.IsEnabled = true;
             saveLinksButton.IsEnabled = true;
             saveFilesButton.IsEnabled = true;
@@ -94,16 +109,12 @@ namespace DownloadFromWebWPF
             {
                 connect2Web.FolderPath = browseTextBox.Text;
 
-                saveContentButton.IsEnabled = true;
-                saveLinksButton.IsEnabled = true;
-                saveFilesButton.IsEnabled = true;
-                saveAllbutton.IsEnabled = true;
-                browseTextBox.IsEnabled = true;
+                EnableButtons();
             }
             else
             {
-                MessageBox.Show("Please enter valid folder path!!!");
-                browseTextBox.Text = "";
+                System.Windows.MessageBox.Show("Please enter valid folder path!!!");
+                //browseTextBox.Text = "";
             }
         }
 
