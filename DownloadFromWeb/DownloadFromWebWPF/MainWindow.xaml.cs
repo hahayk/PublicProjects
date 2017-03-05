@@ -88,12 +88,15 @@ namespace DownloadFromWebWPF
 
         private void TextBoxChangeEvent(object sender, System.Windows.Controls.TextChangedEventArgs e)
         {
-            connect2Web.FolderPath = browseTextBox.Text;
+            if (Directory.Exists(browseTextBox.Text))
+            {
+                connect2Web.FolderPath = browseTextBox.Text;
 
-            saveContentButton.IsEnabled = true;
-            saveLinksButton.IsEnabled = true;
-            saveFilesButton.IsEnabled = true;
-            saveAllbutton.IsEnabled = true; 
+                saveContentButton.IsEnabled = true;
+                saveLinksButton.IsEnabled = true;
+                saveFilesButton.IsEnabled = true;
+                saveAllbutton.IsEnabled = true;
+            }
         }
     }
 }
