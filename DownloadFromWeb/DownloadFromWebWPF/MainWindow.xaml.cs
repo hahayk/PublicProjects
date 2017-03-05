@@ -15,7 +15,6 @@ namespace DownloadFromWebWPF
     {
         private ConnectToWeb connect2Web = null;
 
-
         public MainWindow()
         {
             InitializeComponent();
@@ -25,13 +24,15 @@ namespace DownloadFromWebWPF
             saveAllbutton.IsEnabled = false;
             browsButton.IsEnabled = false;
             browseTextBox.IsEnabled = false;
+
+                connect2Web = new ConnectToWeb(LinkTBox.Text);
         }
 
         private void ReadContentButton_Click(object sender, RoutedEventArgs e)
         {
             try
             {
-                connect2Web = new ConnectToWeb(LinkTBox.Text);
+                connect2Web.CurrentUrl = LinkTBox.Text;
                 connect2Web.ReadPageContent();
             }
             catch (Exception ex)
@@ -42,10 +43,11 @@ namespace DownloadFromWebWPF
             if (connect2Web.HtmlContent != string.Empty)
             {
                 browsButton.IsEnabled = true;
+                browseTextBox.IsEnabled = true;
             }
         }
 
-        
+
 
         private void browseButton_Click(object sender, RoutedEventArgs e)
         {
@@ -75,7 +77,6 @@ namespace DownloadFromWebWPF
             saveLinksButton.IsEnabled = true;
             saveFilesButton.IsEnabled = true;
             saveAllbutton.IsEnabled = true;
-            browseTextBox.IsEnabled = true;
         }
 
         private void saveAllbutton_Click(object sender, RoutedEventArgs e)
@@ -114,7 +115,6 @@ namespace DownloadFromWebWPF
             else
             {
                 System.Windows.MessageBox.Show("Please enter valid folder path!!!");
-                //browseTextBox.Text = "";
             }
         }
 

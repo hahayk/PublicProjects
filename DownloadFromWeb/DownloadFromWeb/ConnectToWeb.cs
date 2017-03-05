@@ -19,8 +19,25 @@ namespace DownloadFromWeb
         string folderPath = "";
         List<string> currentFileToSave = new List<string>();
 
-        //depth of going inside in each link
-        readonly int counter;
+        public string CurrentUrl {
+            get => currentUrl;
+            set {
+                if (!value.Contains("http"))
+                {
+                    currentUrl = "http://" + value;
+                }
+                else
+                {
+                    currentUrl = value;
+                }
+            }
+        }
+
+
+
+
+//depth of going inside in each link
+readonly int counter;
         public string FolderPath
         {
             get
@@ -297,7 +314,6 @@ namespace DownloadFromWeb
             }
         }
 
-        
 
         protected virtual void Dispose(bool disposing)
         {
