@@ -1,4 +1,4 @@
-﻿# SumOfConsecutive2
+﻿# [SumOfConsecutive2](https://codefights.com/arcade/code-arcade/labyrinth-of-nested-loops/EQSjA5PRfyHueeNkj/description)
 
 <div class="markdown"><p>Find the number of ways to express <code>n</code> as sum of some (at least two) consecutive positive integers.</p>
 <p><strong>Example</strong></p>
