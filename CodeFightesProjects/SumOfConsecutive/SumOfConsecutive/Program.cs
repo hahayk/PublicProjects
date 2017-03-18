@@ -11,5 +11,11 @@ namespace SumOfConsecutive
         static void Main(string[] args)
         {
         }
+
+        int isSumOfConsecutive2(int n)
+        {
+
+        }
+
     }
 }
