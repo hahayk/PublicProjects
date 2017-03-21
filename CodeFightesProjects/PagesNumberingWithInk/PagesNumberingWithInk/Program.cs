@@ -10,6 +10,7 @@ namespace PagesNumberingWithInk
     {
         static void Main(string[] args)
         {
+            pagesNumberingWithInk(1, 5);
         }
 
         public static int pagesNumberingWithInk(int current, int numberOfDigits)
