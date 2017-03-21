@@ -11,5 +11,12 @@ namespace PagesNumberingWithInk
         static void Main(string[] args)
         {
         }
+
+        public static int pagesNumberingWithInk(int current, int numberOfDigits)
+        {
+
+            return 0;
+        }
+
     }
 }
