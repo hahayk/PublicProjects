@@ -97,5 +97,10 @@ namespace GBox
             dgShowStore.ItemsSource = from store in obj.Stores
                                       select store;
         }
+
+        private void Window_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+
+        }
     }
 }
