@@ -46,7 +46,7 @@ But when you press <b>Income</b> button you will see summary of your money flow 
  
 <br/>
 
-The programm also allows you dinamically add/remove products from database.
+The programm also allows you dynamically add/remove products from database.
 <br/>
 
 
@@ -56,6 +56,6 @@ The programm also allows you dinamically add/remove products from database.
  
 <br/>
 
-
+> At this moment if you want to run programm you need create local DB with Sale and Store tables. Also you need make some changes in connection strings (app.config file). I'm working to solve mentioned problems, to let you use the programm withouth any issue :).
 
 > This project written by C#6.0 for .NET Framework 4.6.2 version on Visual Studio 2015 Comunity Edition
