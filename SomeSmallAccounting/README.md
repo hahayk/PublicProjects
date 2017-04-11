@@ -7,11 +7,12 @@ Above are some images with demonstartion how the programm works.
 <br/>
 
 *The main window of programm* <br/>
-![Main window](https://github.com/harutyunyanhayk/PublicProjects/blob/master/SomeSmallAccounting/DemoPics/GBMain.JPG)
+<img src="https://github.com/harutyunyanhayk/PublicProjects/blob/master/SomeSmallAccounting/DemoPics/GBMain.JPG" alt="Main"  heigh="500" width="500">
+ 
 
 <br/>
-*Sale Info <br/>
-<img src="https://github.com/harutyunyanhayk/PublicProjects/blob/master/SomeSmallAccounting/DemoPics/GBSale.JPG" alt="Sale"  heigh="100" width="100">
+*Sale Info* <br/>
+<img src="https://github.com/harutyunyanhayk/PublicProjects/blob/master/SomeSmallAccounting/DemoPics/GBSale.JPG" alt="Sale"  heigh="500" width="500">
  
 <br/>
 
