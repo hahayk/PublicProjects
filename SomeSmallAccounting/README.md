@@ -11,9 +11,39 @@ Above are some images with demonstartion how the programm works.
  
 
 <br/>
-*Sale Info* <br/>
+*Sale Info*
+<br/>
 <img src="https://github.com/harutyunyanhayk/PublicProjects/blob/master/SomeSmallAccounting/DemoPics/GBSale.JPG" alt="Sale"  heigh="500" width="500">
  
 <br/>
+
+
+*Sale Summary*
+<br/>
+<img src="https://github.com/harutyunyanhayk/PublicProjects/blob/master/SomeSmallAccounting/DemoPics/GBSaleSummary.JPG" alt="Sale Summary"  heigh="500" width="500">
+ 
+<br/>
+
+
+*Sale History*
+<br/>
+<img src="https://github.com/harutyunyanhayk/PublicProjects/blob/master/SomeSmallAccounting/DemoPics/GBSaleHistory.JPG" alt="Sale History"  heigh="500" width="500">
+ 
+<br/>
+
+
+*Income*
+<br/>
+<img src="https://github.com/harutyunyanhayk/PublicProjects/blob/master/SomeSmallAccounting/DemoPics/GBIncome.JPG" alt="Income"  heigh="500" width="500">
+ 
+<br/>
+
+*Insert To Database*
+<br/>
+<img src="https://github.com/harutyunyanhayk/PublicProjects/blob/master/SomeSmallAccounting/DemoPics/GBInsertToDB.JPG" alt="Insert To Database"  heigh="500" width="500">
+ 
+<br/>
+
+
 
 > This project written by C#6.0 for .NET Framework 4.6.2 version on Visual Studio 2015 Comunity Edition
