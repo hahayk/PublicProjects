@@ -1,0 +1,35 @@
+﻿<Window x:Class="GBox.Sale_History"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:System="clr-namespace:System;assembly=mscorlib"
+        xmlns:my="http://schemas.microsoft.com/wpf/2008/toolkit"
+        Title="SaleHistory" 
+        Height="Auto" Width="Auto" 
+        MaxHeight="600"  SizeToContent="WidthAndHeight" mc:Ignorable="d" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" d:DesignHeight="258" d:DesignWidth="298">
+    <DockPanel>
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="_SaleSummary" Click="MenuItem_Click">Sale Summary</MenuItem>
+        </Menu>
+
+        <TabControl Height="Auto" Name="tabControl1" Width="Auto">
+            <TabItem Header="Sale Sum 1" Name="SS1">
+                <my:DataGrid Name="dgShowSale" DockPanel.Dock="Bottom" 
+                     AutoGenerateColumns="True"  
+                     Height="Auto" Width="Auto"
+                     MaxHeight="400"/>
+            </TabItem>
+            <TabItem Header="Sale Sum 2" Name="SS2">
+                <Grid>
+                <Label Content="Overall Sale" Name="lbOS" Width="75" Margin="0,0,186,140" />
+                <TextBlock Height="23" HorizontalAlignment="Left" Margin="6,21,0,0" Name="tbOS" VerticalAlignment="Top" Width="60" />
+
+                <Label Content="Sold_Qnt" Name="lbSQ" Width="75" Margin="93,0,93,140" />
+                <TextBlock Height="23" HorizontalAlignment="Left" Margin="93,21,0,0" Name="tbSQ" VerticalAlignment="Top" Width="60" />
+                
+                <Label Content="Overall_Qnt" Name="lbOQ" Width="75" Margin="186,0,0,140" />
+                <TextBlock Height="23" HorizontalAlignment="Left" Margin="186,21,0,0" Name="tbOQ" VerticalAlignment="Top" Width="60" />
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </DockPanel>
+</Window>

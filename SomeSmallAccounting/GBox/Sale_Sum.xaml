@@ -1,0 +1,16 @@
+﻿<Window x:Class="GBox.Sale_Sum"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:my="http://schemas.microsoft.com/wpf/2008/toolkit"
+        Title="Sale_Sum" Height="Auto" Width="Auto" mc:Ignorable="d" 
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+        d:DesignHeight="201" d:DesignWidth="444"
+        MaxHeight="600"  SizeToContent="WidthAndHeight">
+    <Grid>
+        <my:DataGrid HorizontalAlignment="Left" Name="dgSaleSum" 
+                     VerticalAlignment="Top" Margin="0,12,0,0" 
+                     Height="Auto" Width="Auto"
+                     MaxHeight="400"/>
+    </Grid>
+</Window>

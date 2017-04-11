@@ -1,0 +1,62 @@
+﻿<Window x:Class="GBox.MainView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="Gift Box" xmlns:my="http://schemas.microsoft.com/wpf/2008/toolkit"
+         MaxWidth="1366" Height="500" Width="1000">
+    <Grid Name="Main_Grid">
+        <StackPanel>
+            <Grid Name="top_grid" Height="60"
+              VerticalAlignment="Top" HorizontalAlignment="Stretch">
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <StackPanel>
+                    <Label Name="Product_List" VerticalAlignment="Top" HorizontalAlignment="Left" 
+                   Width="82" Height="27" Margin="10,0,0,0" >Product List</Label>
+                    <ComboBox Name="ProductList_cmbBox" VerticalAlignment="Top" HorizontalAlignment="Left"
+                      Width="118" Height="24" Margin="10, 0, 0,0">
+                        <ComboBoxItem>ALL</ComboBoxItem>
+                    </ComboBox>
+                </StackPanel>
+
+                <WrapPanel Grid.Column="1" Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Right">
+                    <Button Name="incom_Btn" Height="23" Width="75" Margin="0,10,10,10"
+                    HorizontalAlignment="Right" VerticalAlignment="Top" Click="incom_Btn_Click">Income</Button> <!--show income -->
+                    <Button Name="Show_Sale_Btn" Height="23" Width="75" Margin="0,10,10,10"
+                    HorizontalAlignment="Right" VerticalAlignment="Top" Click="Show_Sale_Btn_Click">Show Sales</Button>
+                    <Button Name="Insert_Btn" Height="23" Width="75" Margin="0,10,10,10"
+                    HorizontalAlignment="Right" VerticalAlignment="Top" Click="Insert_Btn_Click">Insert</Button>
+                </WrapPanel>
+                <Button Content="Update" Height="23" Name="btnUpdate" Width="75" Grid.Column="1" Margin="71,10,293,27" Click="btnUpdate_Click" />
+            </Grid>
+            <!--  <Grid Name="Show_Grid" Grid.Row="1" Margin="0,10,0,0" ShowGridLines="True">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="10*"></ColumnDefinition>
+                    <ColumnDefinition Width="3*"></ColumnDefinition>
+
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+-->
+            <DockPanel>
+                <Button Name="Sale_btn" 
+                        Margin="10,0,0,0" Background="Red" Click="Sale_btn_Click"
+                        DockPanel.Dock="Right" VerticalAlignment="Top" Height="30" Width="48">Sale</Button>
+                
+                <my:DataGrid Name="dgShowStore" AutoGenerateColumns="True" 
+                             HorizontalAlignment="Left" Margin="10,10,0,10"  
+                             DockPanel.Dock="Left" CurrentCellChanged="dgShowStore_CurrentCellChanged"
+                             Height ="450" 
+                             />
+                
+            </DockPanel>
+        </StackPanel>
+    </Grid>
+</Window>

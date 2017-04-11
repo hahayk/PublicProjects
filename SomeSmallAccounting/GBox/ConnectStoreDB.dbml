@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="For_Tests" Class="ConnectStoreDBDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=JUST-PC;Initial Catalog=For_Tests;Integrated Security=True" SettingsObjectName="GBox.Properties.Settings" SettingsPropertyName="For_TestsConnectionString1" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Sale" Member="Sales">
+    <Type Name="Sale">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ID_Product" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Sale_Price" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="Sold_Qnt" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Price_Sum" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="Sale_Date" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Note" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Association Name="Store_Sale" Member="Store" ThisKey="ID" OtherKey="ID" Type="Store" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Store" Member="Stores">
+    <Type Name="Store">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Product" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Quantity_Start" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Quantity_Now" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Real_Price_USD" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Real_Price_AMD" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Sale_Price_AMD" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Note" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Link" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="Store_Sale" Member="Sales" ThisKey="ID" OtherKey="ID" Type="Sale" />
+    </Type>
+  </Table>
+</Database>

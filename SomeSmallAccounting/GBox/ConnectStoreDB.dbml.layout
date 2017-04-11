@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="ConnectStoreDB">
+  <DataContextMoniker Name="/ConnectStoreDBDataContext" />
+  <nestedChildShapes>
+    <classShape Id="de288f7e-c988-4025-b08d-faeb35b4e512" absoluteBounds="1.5, 1, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/ConnectStoreDBDataContext/Sale" />
+      <nestedChildShapes>
+        <elementListCompartment Id="9a68145d-68dc-432b-8b82-767c8e7ae227" absoluteBounds="1.5150000000000001, 1.46, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="9a26bb59-c959-432e-b342-1478732d7b35" absoluteBounds="4.5, 1.25, 2, 2.7324039713541666">
+      <DataClassMoniker Name="/ConnectStoreDBDataContext/Store" />
+      <nestedChildShapes>
+        <elementListCompartment Id="1e39dd92-1402-4772-a1fd-ada04048a7da" absoluteBounds="4.515, 1.71, 1.9700000000000002, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(4.5 : 2.20274983723958); (3.5 : 2.20274983723958)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/ConnectStoreDBDataContext/Store/Store_Sale" />
+      <nodes>
+        <classShapeMoniker Id="9a26bb59-c959-432e-b342-1478732d7b35" />
+        <classShapeMoniker Id="de288f7e-c988-4025-b08d-faeb35b4e512" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

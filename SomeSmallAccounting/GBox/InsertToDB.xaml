@@ -1,0 +1,45 @@
+﻿<Window x:Class="GBox.InsertToDB"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="InsertToDB" Height="332" Width="925" xmlns:my="http://schemas.microsoft.com/wpf/2008/toolkit">
+    <Grid Name="MainGridInsert">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="46*"></RowDefinition>
+            <RowDefinition Height="181*"></RowDefinition>
+            <RowDefinition Height="66*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <WrapPanel Name="Add_Remove" Height="45" HorizontalAlignment="Left" VerticalAlignment="Top" Width="153" Grid.Row="0">
+            <Button Name="ADD" Width="60" 
+                    HorizontalAlignment="Left"  Margin="10,10,0,5" Click="ADD_Click">+ ADD</Button>
+            <Button Name="Remove" Width="60" 
+                    HorizontalAlignment="Left"  Margin="10,10,0,5" Click="Remove_Click">Remove</Button>
+        </WrapPanel>
+
+        
+        <ScrollViewer Grid.Row="2"></ScrollViewer>
+
+        <WrapPanel Grid.Row="3" HorizontalAlignment="Right">
+            <Button Name="Save_btn" HorizontalAlignment="Right" VerticalAlignment="Bottom"
+                Height="36" Width="96" Margin="0,10,10,10">Save</Button>
+        <Button Name="Discard_btn"  VerticalAlignment="Bottom"
+                Height="36" Width="96" Margin="0,10,10,10" Click="Discard_btn_Click">Discard</Button>
+</WrapPanel>
+        <my:DataGrid Grid.Row="1" HorizontalAlignment="Left" Name="dataGrid1" VerticalAlignment="Top" 
+                     ItemsSource="{Binding Stores}" AutoGenerateColumns="False">
+            <my:DataGrid.Columns>
+                <my:DataGridTemplateColumn Header="ID" IsReadOnly="True"/>
+                <my:DataGridTemplateColumn Header="Product" IsReadOnly="True"/>
+                <my:DataGridTemplateColumn Header="Description" IsReadOnly="True"/>
+                <my:DataGridTemplateColumn Header="Quantity" IsReadOnly="True"/>
+                <my:DataGridTemplateColumn Header="Real Price USD" IsReadOnly="True"/>
+                <my:DataGridTemplateColumn Header="Real Price AMD" IsReadOnly="True"/>
+                <my:DataGridTemplateColumn Header="Sale Price AMD" IsReadOnly="True"/>
+                <my:DataGridTemplateColumn Header="Link" IsReadOnly="True"/>
+                <my:DataGridTemplateColumn Header="Note" IsReadOnly="True"/>
+                
+            </my:DataGrid.Columns>
+
+        </my:DataGrid>
+    </Grid>
+</Window>

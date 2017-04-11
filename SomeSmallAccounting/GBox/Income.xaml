@@ -1,0 +1,22 @@
+﻿<Window x:Class="GBox.Income"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Income" Height="304" Width="477" ResizeMode="NoResize">
+    <Grid>
+        <Rectangle Height="162" HorizontalAlignment="Left" Margin="241,10,0,0" Name="rectangle2" Stroke="Black" VerticalAlignment="Top" Width="196" />
+        <Rectangle Height="67" HorizontalAlignment="Left" Margin="140,10,0,0" Name="rectangle3" Stroke="Black" VerticalAlignment="Top" Width="101
+                   " />
+        <Rectangle Height="162" HorizontalAlignment="Left" Margin="4,10,0,0" Name="rectangle1" Stroke="Black" VerticalAlignment="Top" Width="137" />
+        <Label Content="Overall Cost AMD" FontWeight="Bold" Height="27" HorizontalAlignment="Left" Margin="12,82,0,0" Name="label1" VerticalAlignment="Top" Width="127" />
+        <Label Content="Current Income AMD" FontWeight="Bold"  Height="28" HorizontalAlignment="Left" Margin="243,12,0,0" Name="label2" VerticalAlignment="Top" />
+        <TextBlock Height="23" HorizontalAlignment="Left" Margin="12,116,0,0" Name="tbCost" Text="Spent Here" VerticalAlignment="Top" Background="#19000000" Width="74" />
+        <TextBlock Height="23" HorizontalAlignment="Right" Margin="0,46,114,0" Name="tbCurIncome" Text="Income Here" VerticalAlignment="Top" Background="#19000000" Width="74" />
+        <Button Content="OK" Height="23" HorizontalAlignment="Center" Margin="150,0,214,12" Name="ok_btn" VerticalAlignment="Bottom" Width="91" Click="ok_btn_Click" />
+        <Label Content="Sale" FontWeight="Bold" Height="28" HorizontalAlignment="Left" Margin="161,12,0,0" Name="label3" VerticalAlignment="Top" />
+        <TextBlock Height="23" HorizontalAlignment="Left" Margin="161,46,0,0" Name="tbSale" Text="Sale " VerticalAlignment="Top" Background="#19000000" Width="74" />
+        <Label Content="Current Cost AMD" FontWeight="Bold" Height="27" HorizontalAlignment="Left" Margin="12,12,0,0" Name="label4" VerticalAlignment="Top" Width="127" />
+        <TextBlock Background="#19000000" Height="23" HorizontalAlignment="Left" Margin="12,46,0,0" Name="tbcurrentCost" Text="Spent Here" VerticalAlignment="Top" Width="74" />
+        <Label Content="Overall Income AMD" FontWeight="Bold" Height="28" HorizontalAlignment="Left" Margin="243,82,0,0" Name="label5" VerticalAlignment="Top" />
+        <TextBlock Background="#19000000" Height="23" HorizontalAlignment="Right" Margin="0,116,114,0" Name="tbOverallIncome" Text="Income Here" VerticalAlignment="Top" Width="74" />
+    </Grid>
+</Window>
