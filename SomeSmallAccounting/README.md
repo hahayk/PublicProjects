@@ -12,9 +12,11 @@ When programm is opened the first view is coming is the "Main" window.
 <img src="https://github.com/harutyunyanhayk/PublicProjects/blob/master/SomeSmallAccounting/DemoPics/GBMain.JPG" alt="Main"  heigh="500" width="500">
  
 <br/>
-After product selection and pushing "Sale" button you will see the below window. Here you should enter the "Quantity" of sold items. Price and Note tabs are optional, then its needed to press OK button.
+After product selection and pushing <b>"Sale"</b> button you will see the below window. Here you should enter the <i>"Quantity"</i> of sold items. <i>Price</i> and <i>Note</i> tabs are optional, then its needed to press OK button.
 <br/>
-*Sale Info*
+
+* Sale Info *
+
 <br/>
 <img src="https://github.com/harutyunyanhayk/PublicProjects/blob/master/SomeSmallAccounting/DemoPics/GBSale.JPG" alt="Sale"  heigh="500" width="500">
  
