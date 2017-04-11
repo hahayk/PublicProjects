@@ -6,10 +6,13 @@ The project also demonstrates the usage of WPF/XAML and Database.
 Above are some images with demonstartion how the programm works.
 <br/>
 
+When programm is opened the first view is coming is the "Main" window.
+
 *The main window of programm* <br/>
 <img src="https://github.com/harutyunyanhayk/PublicProjects/blob/master/SomeSmallAccounting/DemoPics/GBMain.JPG" alt="Main"  heigh="500" width="500">
  
-
+<br/>
+After product selection and pushing "Sale" button you will see the below window. Here you should enter the "Quantity" of sold items. Price and Note tabs are optional, then its needed to press OK button.
 <br/>
 *Sale Info*
 <br/>
