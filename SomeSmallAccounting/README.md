@@ -12,16 +12,16 @@ When programm is opened the first view is coming is the "Main" window.
 <img src="https://github.com/harutyunyanhayk/PublicProjects/blob/master/SomeSmallAccounting/DemoPics/GBMain.JPG" alt="Main"  heigh="500" width="500">
  
 <br/>
-After product selection and pushing <b>"Sale"</b> button you will see the below window. Here you should enter the <i>"Quantity"</i> of sold items. <i>Price</i> and <i>Note</i> tabs are optional, then its needed to press OK button.
+After product selection and pushing <b>"Sale"</b> button you will see the below window. Here you should enter the <i>"Quantity"</i> of sold items. <i>Price</i> and <i>Note</i> tabs are optional, then its needed to press <b>OK</b> button.
 <br/>
 
-* Sale Info *
+* Sale Info
 
-<br/>
 <img src="https://github.com/harutyunyanhayk/PublicProjects/blob/master/SomeSmallAccounting/DemoPics/GBSale.JPG" alt="Sale"  heigh="500" width="500">
  
 <br/>
 
+When you press <b>Show Sales</b> button you will see the new window with the history of all sold items.
 
 *Sale Summary*
 <br/>
@@ -29,6 +29,7 @@ After product selection and pushing <b>"Sale"</b> button you will see the below 
  
 <br/>
 
+In this window (<i>Sale Summary</i>) you can press <b>SaleSummary</b> menu item and see all sales combined by product name.
 
 *Sale History*
 <br/>
@@ -36,12 +37,18 @@ After product selection and pushing <b>"Sale"</b> button you will see the below 
  
 <br/>
 
+All above mentioned actions allow you to manage your store. <br/>
+But when you press <b>Income</b> button you will see summary of your money flow (spent and earned).
 
 *Income*
 <br/>
 <img src="https://github.com/harutyunyanhayk/PublicProjects/blob/master/SomeSmallAccounting/DemoPics/GBIncome.JPG" alt="Income"  heigh="500" width="500">
  
 <br/>
+
+The programm also allows you dinamically add/remove products from database.
+<br/>
+
 
 *Insert To Database*
 <br/>
