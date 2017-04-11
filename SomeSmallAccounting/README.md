@@ -1,5 +1,5 @@
 ﻿# GBox accounting system
-###Project can be used too keep small businesses accounting
+### Project can be used too keep small businesses accounting
 The project also demonstrates the usage of WPF/XAML and Database.
 
 
