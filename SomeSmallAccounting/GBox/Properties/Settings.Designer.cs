@@ -12,7 +12,7 @@ namespace GBox.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "14.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "15.0.1.0")]
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -26,7 +26,7 @@ namespace GBox.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=Compik;Initial Catalog=TableForTest;Integrated Security=True")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=hayk-pc;Initial Catalog=For_Tests;Integrated Security=True")]
         public string GiftBoxStoreConnectionString {
             get {
                 return ((string)(this["GiftBoxStoreConnectionString"]));
@@ -36,7 +36,7 @@ namespace GBox.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=vcqra2;Initial Catalog=TableForTest;Integrated Security=True")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=vcqra2;Initial Catalog=For_Tests;Integrated Security=True")]
         public string For_TestsConnectionString {
             get {
                 return ((string)(this["For_TestsConnectionString"]));
@@ -46,7 +46,7 @@ namespace GBox.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=Compik;Initial Catalog=TableForTest;Integrated Security=True")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=Compik;Initial Catalog=For_Tests;Integrated Security=True")]
         public string For_TestsConnectionString1 {
             get {
                 return ((string)(this["For_TestsConnectionString1"]));
